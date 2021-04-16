@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterPulpo : MonoBehaviour
+public class ShooterErizo : MonoBehaviour
 {
     public GameObject bulletPrefab; // Establecemos el prefab de la bala a la que le vamos a agregar el componente Shooter para habilitar el disparo
     public bool autoShoot; // Establecemos el resto de variables públicas para determinar si los disparos van a ser automáticos o manuales
@@ -20,11 +20,11 @@ public class ShooterPulpo : MonoBehaviour
 
     public void Shoot() // Método público utilizado para el disparo
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
             // Instanciamos un clon del prefab de la bala 
-            // en la escena en la posición del cañón del pulpo (poseedor del componente ShooterPulpo)
-            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 45 * i));
+            // en la escena en la posición del cañón del erizo (poseedor del componente ShooterErizo)
+            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 90 * i));
         }
     }
 
