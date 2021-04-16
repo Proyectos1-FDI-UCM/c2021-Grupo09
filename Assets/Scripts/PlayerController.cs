@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     public Material transparent;
     public Material red;
     public Material normal;
-    GameObject torrePuntero;
+    GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
+    bool puedeConstruir;
     struct PlayerInfo
     {
         public ModoJug modo;
@@ -73,14 +74,16 @@ public class PlayerController : MonoBehaviour
             torrePuntero.transform.position = pos;
 
             //Cambia el color de la torrePuntero en función de la distancia al jugador
-            if (Vector3.Distance(pos, this.gameObject.transform.position) > 4) torrePuntero.GetComponent<Renderer>().material = red;
+            if (Vector3.Distance(pos, this.gameObject.transform.position) > 4) puedeConstruir = false;
             else
             {
-                torrePuntero.GetComponent<Renderer>().material = transparent;
+                puedeConstruir = true;   
 
                 //Construcción
                 if (Input.GetButtonDown("Fire1")) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
             }
+            if(!puedeConstruir) torrePuntero.GetComponent<Renderer>().material = red;
+            else torrePuntero.GetComponent<Renderer>().material = transparent;
         }
 
         //Cambio de modo
