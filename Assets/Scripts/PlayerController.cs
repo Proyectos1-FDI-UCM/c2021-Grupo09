@@ -77,11 +77,15 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(pos, this.gameObject.transform.position) > 4) puedeConstruir = false;
             else
             {
+                // if(colisiona con suelo) puedeConstruir
+                // else !puedeContruir
                 puedeConstruir = true;   
 
                 //Construcción
                 if (Input.GetButtonDown("Fire1")) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
             }
+
+            //Cambia el material según si se puede o no construir
             if(!puedeConstruir) torrePuntero.GetComponent<Renderer>().material = red;
             else torrePuntero.GetComponent<Renderer>().material = transparent;
         }
