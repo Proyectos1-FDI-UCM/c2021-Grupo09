@@ -24,7 +24,7 @@ public class PlayerHitBox : MonoBehaviour
         //especificamos que la colision sea con cada bullet para cada tipo de torre
         if (collision.gameObject.GetComponent<BalaBallena>())
         {
-            playerHP = playerHP - dañoBallena
+            playerHP = playerHP - dañoBallena;
         }
 
         if (collision.gameObject.GetComponent<BalaTortuga>())
