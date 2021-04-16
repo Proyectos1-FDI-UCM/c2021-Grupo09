@@ -13,6 +13,10 @@ public class PlayerHitBox : MonoBehaviour
     public int dañoTortuga;
     //bool para saber cuando el jugador ha muerto
     bool playerDead;
+    //Valor de las monedas recogidas
+    public int valorMonedas;
+    //Total de monedas recogidas
+    private int monedasActuales;
 
     //Metodo para que el GO asociado detecte una colision
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +40,13 @@ public class PlayerHitBox : MonoBehaviour
         if (collision.gameObject.GetComponent<BalaPulpo>())
         {
             playerHP = playerHP - dañoPulpo;
+        }
+
+
+        //Cuando se colisione con una moneda esta se sume al total 
+        if (collision.gameObject.GetComponent<Monedas>())
+        {
+            monedasActuales = monedasActuales + valorMonedas;
         }
     }
     //Metodo para que si el jugador se queda sin vida el GO se destruya y el bool playerDead pase a ser true
