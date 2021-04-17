@@ -20,7 +20,7 @@ public class PlayerHitBox : MonoBehaviour
 
     //Metodo para que el GO asociado detecte una colision
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {/*
         //especificamos que la colision sea con cada bullet para cada tipo de torre
         if (collision.gameObject.GetComponent<BalaBallena>())
         {
@@ -41,7 +41,7 @@ public class PlayerHitBox : MonoBehaviour
         {
             playerHP = playerHP - dañoPulpo;
         }
-
+        */
 
         //Cuando se colisione con una moneda esta se sume al total 
         if (collision.gameObject.GetComponent<Monedas>())

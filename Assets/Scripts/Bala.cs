@@ -6,6 +6,7 @@ public class Bala : MonoBehaviour
 {
     public float velocidadBala; // 
     private Rigidbody2D rb;
+    public int damageDealt = 5;
 
     void Awake()
     {
