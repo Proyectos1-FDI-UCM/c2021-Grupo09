@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class RecibaDanyo : MonoBehaviour
 {
-    int saludRestante;
-    public int saludTotal = 10;
+    // Declaración de variables
+    int saludRestante; // Salud que posee actualmente el enemigo
+    public int saludTotal = 10; // Salud máxima y con la que empieza el enemigo
+    public int monedasSalud; // Monedas que soltará dependiendo de la salud del enemigo
+    public GameObject moneda; // Prefab de moneda que aparecerá al morir el enemigo
 
     private void Start()
     {
+        monedasSalud = saludTotal / 5; // Cálculo de monedas según la salud del enemigo
         saludRestante = saludTotal;
     }
 
@@ -19,6 +23,15 @@ public class RecibaDanyo : MonoBehaviour
             saludRestante -= other.gameObject.GetComponent<Bala>().damageDealt;
             // Borrar al hacer que pueda morir
             Debug.Log(saludRestante + " HP restante");
+        }
+
+        if (saludRestante <= 0) // Si la salud del enemigo se reduce a cero
+        {
+            Destroy(this.gameObject); // Éste se "destruye"
+            for (int i=0; i < monedasSalud; i++) // Y aparecerán tantas monedas
+            {
+                Instantiate(moneda, transform.position, transform.rotation); // Como sean necesarias
+            }
         }
     }
 }

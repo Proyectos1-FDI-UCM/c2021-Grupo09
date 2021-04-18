@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Monedas : MonoBehaviour
 {
-    //Metodo que destruye el GO al que va asociado tras una colisión
+    // Declaración de variables
+    public int monedasTotales; // Monedas totales del jugador
+
+    // Método que destruye el GO al que va asociado tras una colisión
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
-
+        Destroy(this.gameObject); // La moneda desaparece
+        monedasTotales += 5; // Se añade +5 monedas al contador de monedas
+        Debug.Log("Usted tiene " + monedasTotales + " monedas");
     }
 }
