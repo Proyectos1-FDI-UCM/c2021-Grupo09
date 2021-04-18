@@ -73,18 +73,10 @@ public class PlayerController : MonoBehaviour
             posEnCursor();
             torrePuntero.transform.position = pos;
 
-            //Cambia el color de la torrePuntero en función de la distancia al jugador
             if (Vector3.Distance(pos, this.gameObject.transform.position) > 4) puedeConstruir = false;
-            else
-            {
-                // if(colisiona con suelo) puedeConstruir
-                // else !puedeContruir
-                puedeConstruir = true;   
-
-                //Construcción
-                if (Input.GetButtonDown("Fire1")) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
-            }
-
+            else if (Input.GetButtonDown("Fire1") && puedeConstruir) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
+            
+            
             //Cambia el material según si se puede o no construir
             if(!puedeConstruir) torrePuntero.GetComponent<Renderer>().material = red;
             else torrePuntero.GetComponent<Renderer>().material = transparent;
@@ -116,5 +108,9 @@ public class PlayerController : MonoBehaviour
         pos.z = -1;
         pos.x = Mathf.RoundToInt(pos.x);
         pos.y = Mathf.RoundToInt(pos.y);
+    }
+    public void CambiaPuedeConstruir(bool pc)
+    {
+        puedeConstruir = pc;
     }
 }
