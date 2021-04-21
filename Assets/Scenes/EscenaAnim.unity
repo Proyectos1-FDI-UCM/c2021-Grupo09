@@ -4084,6 +4084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transparent: {fileID: 2100000, guid: 85bd6ad35cea48645a51f3e08265e469, type: 2}
+  red: {fileID: 2100000, guid: 96f07995621289c42872351dcdbf864e, type: 2}
   player: {fileID: 1608531651}
 --- !u!1 &143528515
 GameObject:
@@ -10428,6 +10429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saludTotal: 10
+  monedasSalud: 0
+  moneda: {fileID: 0}
 --- !u!50 &994567602
 Rigidbody2D:
   serializedVersion: 4
@@ -11420,9 +11423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torre: {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63, type: 3}
+  suelo: {fileID: 78788321}
   transparent: {fileID: 2100000, guid: 85bd6ad35cea48645a51f3e08265e469, type: 2}
   red: {fileID: 2100000, guid: 96f07995621289c42872351dcdbf864e, type: 2}
-  normal: {fileID: 2100000, guid: 70cc2db1f23867f4a858746a834d3fb9, type: 2}
   velocityScale: 2.3
 --- !u!4 &1608531653
 Transform:

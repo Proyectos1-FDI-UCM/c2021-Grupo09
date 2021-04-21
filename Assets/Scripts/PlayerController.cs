@@ -5,9 +5,9 @@ public class PlayerController : MonoBehaviour
 
     enum ModoJug { Disparo, Construccion }
     public GameObject torre;
+    public GameObject suelo;
     public Material transparent;
     public Material red;
-    public Material normal;
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         // ortographicSize = (alto de la pantalla en unidades de unity) / 2
         torrePuntero = Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
         torrePuntero.GetComponent<Renderer>().material = transparent;
-
         torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+        //torrePuntero.GetComponent<BoxCollider2D>().enabled = false;
         torrePuntero.SetActive(false);
     }
 
@@ -73,8 +73,11 @@ public class PlayerController : MonoBehaviour
             posEnCursor();
             torrePuntero.transform.position = pos;
 
-            if (Vector3.Distance(pos, this.gameObject.transform.position) > 4) puedeConstruir = false;
-            else if (Input.GetButtonDown("Fire1") && puedeConstruir) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
+            if (torrePuntero.GetComponent<Collider2D>().IsTouching(suelo.GetComponent<Collider2D>())
+                && Vector3.Distance(pos, this.gameObject.transform.position) < 4) puedeConstruir = true;
+            else puedeConstruir = false;
+
+            if (Input.GetButtonDown("Fire1") && puedeConstruir) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
             
             
             //Cambia el material según si se puede o no construir
