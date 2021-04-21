@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2689605170213261090}
   - component: {fileID: 9134221487840813064}
   - component: {fileID: 4626395566599415130}
-  - component: {fileID: 7329331884382775549}
+  - component: {fileID: 7174584304959633860}
   m_Layer: 8
-  m_Name: Pulpo
+  m_Name: Erizo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a057ca0df41dd5944bbbef19c455669f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c561df0f831a4de4da118145c84acd81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.47066668, y: 0.404}
+    oldSize: {x: 0.45933333, y: 0.37}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7329331884382775549
+--- !u!114 &7174584304959633860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,10 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2241420531181361487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbde1e7ecd0aff4e98805ed0209624c, type: 3}
+  m_Script: {fileID: 11500000, guid: 005e52682d9b0024693604cb7911f96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6357269262649181129, guid: 8dce73750a31f544f871fb09bd8123ef,
     type: 3}
   autoShoot: 1
-  cadenciaDisp: 2
+  cadenciaDisp: 1

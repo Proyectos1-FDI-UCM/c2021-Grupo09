@@ -4083,9 +4083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f7592d5a270f4aad36adc1bba5e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparent: {fileID: 2100000, guid: 85bd6ad35cea48645a51f3e08265e469, type: 2}
-  red: {fileID: 2100000, guid: 96f07995621289c42872351dcdbf864e, type: 2}
-  player: {fileID: 1608531651}
 --- !u!1 &143528515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10430,7 +10427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saludTotal: 10
   monedasSalud: 0
-  moneda: {fileID: 0}
+  moneda: {fileID: 5072286887356789971, guid: 27073b49605a57146a753d0be84b42cb, type: 3}
 --- !u!50 &994567602
 Rigidbody2D:
   serializedVersion: 4
