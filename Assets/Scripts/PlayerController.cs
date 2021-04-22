@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 
     enum ModoJug { Disparo, Construccion }
     public GameObject torre;
-    public GameObject suelo;
+    public GameObject camino;
     public Material transparent;
     public Material red;
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             posEnCursor();
             torrePuntero.transform.position = pos;
 
-            if (torrePuntero.GetComponent<Collider2D>().IsTouching(suelo.GetComponent<Collider2D>())
+            if (!torrePuntero.GetComponent<Collider2D>().IsTouching(camino.GetComponent<Collider2D>())
                 && Vector3.Distance(pos, this.gameObject.transform.position) < 4) puedeConstruir = true;
             else puedeConstruir = false;
 
