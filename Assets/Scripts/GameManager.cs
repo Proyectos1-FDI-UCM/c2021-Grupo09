@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     // Start is called before the first frame update
 
+    public int monedasTotal = 0;
+    public int valorMoneda;
+
     void Awake()
     {
 
@@ -29,6 +32,10 @@ public class GameManager : MonoBehaviour
         return instance;
     }
     
+    public void AddCoins()
+    {
+        monedasTotal += valorMoneda;
+    }
 
     // Update is called once per frame
     void Update()
