@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    // Start is called before the first frame update
+    private UIManager theUIManager;
 
-    public int monedasTotal = 0;
+    public int monedasTotal;
     public int valorMoneda;
+
 
     void Awake()
     {
@@ -35,11 +36,21 @@ public class GameManager : MonoBehaviour
     public void AddCoins()
     {
         monedasTotal += valorMoneda;
+        //Actualiza el contador de monedas de la UI
+        theUIManager.UpdateMonedas(monedasTotal);
+    }
+    public void SubtractCoins(int costeTorre)
+    {
+        monedasTotal -= costeTorre;
+        theUIManager.UpdateMonedas(monedasTotal);
+    }
+    public int GetCoins()
+    {
+        return monedasTotal;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetUIManager(UIManager uim)
     {
-        
+        theUIManager = uim;
     }
 }

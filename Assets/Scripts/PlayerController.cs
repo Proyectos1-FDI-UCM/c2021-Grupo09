@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
+    // Costes torres
+    int costePulpo = 60;
     struct PlayerInfo
     {
         public ModoJug modo;
@@ -77,7 +79,11 @@ public class PlayerController : MonoBehaviour
                 && Vector3.Distance(pos, this.gameObject.transform.position) < 4) puedeConstruir = true;
             else puedeConstruir = false;
 
-            if (Input.GetButtonDown("Fire1") && puedeConstruir) Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
+            if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
+            {
+                Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
+                GameManager.GetInstance().SubtractCoins(costePulpo);
+            }
             
             
             //Cambia el material según si se puede o no construir
