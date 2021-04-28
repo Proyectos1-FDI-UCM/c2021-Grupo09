@@ -6,8 +6,6 @@ public class PlayerController : MonoBehaviour
     enum ModoJug { Disparo, Construccion }
     public GameObject torre;
     public GameObject camino;
-    public Material transparent;
-    public Material red;
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
@@ -38,9 +36,8 @@ public class PlayerController : MonoBehaviour
 
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
-        // ortographicSize = (alto de la pantalla en unidades de unity) / 2
         torrePuntero = Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
-        torrePuntero.GetComponent<Renderer>().material = transparent;
+        torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
         if (torrePuntero.GetComponent<ShooterErizo>().enabled) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
         else if (torrePuntero.GetComponent<ShooterPulpo>().enabled) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
         else if (torrePuntero.GetComponent<ShooterTortuga>().enabled) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
@@ -88,8 +85,8 @@ public class PlayerController : MonoBehaviour
             
             
             //Cambia el material según si se puede o no construir
-            if(!puedeConstruir) torrePuntero.GetComponent<Renderer>().material = red;
-            else torrePuntero.GetComponent<Renderer>().material = transparent;
+            if(!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
+            else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f);
         }
 
         //Cambio de modo
