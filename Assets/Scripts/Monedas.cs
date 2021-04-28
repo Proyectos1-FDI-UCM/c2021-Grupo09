@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monedas : MonoBehaviour
 {
     // Declaración de variables
-    private int monedasTotales; // Monedas totales del jugador
+    public int monedasTotales; // Monedas totales del jugador
 
     // Método que destruye el GO al que va asociado tras una colisión
     private void OnCollisionEnter2D(Collision2D collision)
