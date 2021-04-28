@@ -11,7 +11,6 @@ public class Monedas : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(this.gameObject); // La moneda desaparece
-        GameManager.GetInstance().AddCoins(); ; // Se añade +5 monedas al contador de monedas
-        Debug.Log("Usted tiene " + monedasTotales + " monedas");
+        GameManager.GetInstance().AddCoins(); ; // Se añade + 5 monedas al contador de monedas
     }
 }
