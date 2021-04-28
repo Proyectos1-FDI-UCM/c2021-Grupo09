@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6641173041263296512}
   - component: {fileID: 6683477581141977401}
   m_Layer: 10
-  m_Name: Bullet
+  m_Name: Bala Erizo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6603774, g: 0.21493416, b: 0.21493416, a: 1}
+  m_Color: {r: 0.3537736, g: 0.9375643, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,3 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadBala: 2
+  damageDealt: 3
