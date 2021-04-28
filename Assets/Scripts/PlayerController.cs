@@ -57,9 +57,18 @@ public class PlayerController : MonoBehaviour
         movimiento = new Vector2(movimientoX, movimientoY);
         movimiento.Normalize();
 
-        anim.SetFloat("Horizontal", movimientoX);
-        anim.SetFloat("Vertical", movimientoY);
-        anim.SetFloat("Magnitude", movimiento.magnitude);
+        if (movimientoX > 0)
+        {
+            transform.localScale = new Vector3(-1.8f, 1.8f, 1);
+        }
+        else if (movimientoX < 0)
+        {
+            transform.localScale = new Vector3(1.8f, 1.8f, 1);
+        }
+
+        //anim.SetFloat("Horizontal", movimientoX);
+        //anim.SetFloat("Vertical", movimientoY);
+        //anim.SetFloat("Magnitude", movimiento.magnitude);
 
         //Disparo
         if (playerInfo.modo == ModoJug.Disparo)
