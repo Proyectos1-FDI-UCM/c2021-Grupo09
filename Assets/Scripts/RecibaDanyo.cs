@@ -7,7 +7,7 @@ public class RecibaDanyo : MonoBehaviour
     // Declaración de variables
     int saludRestante; // Salud que posee actualmente el enemigo
     public int saludTotal = 10; // Salud máxima y con la que empieza el enemigo
-    public int monedasSalud; // Monedas que soltará dependiendo de la salud del enemigo
+    private int monedasSalud; // Monedas que soltará dependiendo de la salud del enemigo
     public GameObject moneda; // Prefab de moneda que aparecerá al morir el enemigo
 
     private void Start()
