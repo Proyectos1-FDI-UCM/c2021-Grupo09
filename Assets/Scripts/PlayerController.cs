@@ -41,8 +41,9 @@ public class PlayerController : MonoBehaviour
         // ortographicSize = (alto de la pantalla en unidades de unity) / 2
         torrePuntero = Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
         torrePuntero.GetComponent<Renderer>().material = transparent;
-        torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
-        //torrePuntero.GetComponent<BoxCollider2D>().enabled = false;
+        if (torrePuntero.GetComponent<ShooterErizo>().enabled) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterPulpo>().enabled) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterTortuga>().enabled) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
         torrePuntero.SetActive(false);
     }
 
