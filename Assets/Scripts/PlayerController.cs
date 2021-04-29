@@ -4,8 +4,10 @@ public class PlayerController : MonoBehaviour
 {
 
     enum ModoJug { Disparo, Construccion }
-    public GameObject torre;
-    public GameObject camino;
+    public GameObject Erizo;
+    public GameObject Pulpo;
+    public GameObject Tortuga;
+    GameObject torre;
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
@@ -34,13 +36,17 @@ public class PlayerController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerInfo.modo = ModoJug.Disparo;
 
+        //Iniciamos la torre por defecto del modo construir
+        torre = Pulpo;
+
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
         torrePuntero = Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
         torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
-        if (torrePuntero.GetComponent<ShooterErizo>().enabled) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
-        else if (torrePuntero.GetComponent<ShooterPulpo>().enabled) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
-        else if (torrePuntero.GetComponent<ShooterTortuga>().enabled) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
+        if (torrePuntero.GetComponent<ShooterErizo>() != null) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterPulpo>() != null) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterTortuga>() != null) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
+        torrePuntero.layer = 0;
         torrePuntero.SetActive(false);
     }
 
@@ -82,8 +88,8 @@ public class PlayerController : MonoBehaviour
             posEnCursor();
             torrePuntero.transform.position = pos;
 
-            if (!torrePuntero.GetComponent<Collider2D>().IsTouching(camino.GetComponent<Collider2D>())
-                && Vector3.Distance(pos, this.gameObject.transform.position) < 4) puedeConstruir = true;
+            if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Torres"))
+                && Vector3.Distance(pos, this.gameObject.transform.position) < 6) puedeConstruir = true;
             else puedeConstruir = false;
 
             if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
@@ -93,9 +99,9 @@ public class PlayerController : MonoBehaviour
             }
             
             
-            //Cambia el material según si se puede o no construir
-            if(!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
-            else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f);
+            //Cambia el color según si se puede o no construir
+            if(!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
+            else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
         }
 
         //Cambio de modo
