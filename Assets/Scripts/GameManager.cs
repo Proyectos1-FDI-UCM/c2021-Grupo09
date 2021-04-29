@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int monedasTotal;
     public int valorMoneda;
+    public int oleadaActual = 1;
+    public int enemigosRest;
 
 
     void Awake()
@@ -47,6 +49,21 @@ public class GameManager : MonoBehaviour
     public int GetCoins()
     {
         return monedasTotal;
+    }
+
+    public void EnemigoCaido()
+    {
+        enemigosRest--;
+    }
+
+    public bool CambioRonda()
+    {
+        if (enemigosRest == 0)
+        {
+             oleadaActual++;
+        }
+        return true;
+        //return oleadaActual;
     }
 
     public void SetUIManager(UIManager uim)
