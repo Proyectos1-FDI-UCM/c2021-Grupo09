@@ -76,9 +76,10 @@ public class PlayerController : MonoBehaviour
         //anim.SetFloat("Vertical", movimientoY);
         //anim.SetFloat("Magnitude", movimiento.magnitude);
 
-        //Disparo
-        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11)
+        //Que no se pueda construir ni disparar si el cursor está sobre la interfaz
+        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11) 
         {
+            //Disparo
             if (playerInfo.modo == ModoJug.Disparo)
             {
                 if (Input.GetButtonDown("Fire1")) GetComponentInChildren<DispararJugador>().Shoot();
@@ -91,20 +92,28 @@ public class PlayerController : MonoBehaviour
                 torrePuntero.transform.position = pos;
 
                 if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
-                    && Vector3.Distance(pos, this.gameObject.transform.position) < 6) puedeConstruir = true;
-                else puedeConstruir = false;
+                    && Vector3.Distance(pos, this.gameObject.transform.position) < 6)
+                {
+                    puedeConstruir = true;
+                    torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
+                }
+                else
+                {
+                    puedeConstruir = false;
+                    torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
+                }
 
                 if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
                 {
                     Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
                     GameManager.GetInstance().SubtractCoins(costePulpo);
                 }
-
-
-                //Cambia el color según si se puede o no construir
-                if (!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
-                else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
             }
+        }
+        else if (puedeConstruir) //Que se ponga roja la torre si el cursor está sobre la interfaz
+        {
+            puedeConstruir = false;
+            torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
         }
 
         //Cambio de modo

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     {
         //especificamos que la colision sea con la base
 
-        if (collision.gameObject.GetComponen<Base>())
+        if (collision.gameObject.GetComponent<Base>())
         {
             Destroy(this.gameObject);
         }
