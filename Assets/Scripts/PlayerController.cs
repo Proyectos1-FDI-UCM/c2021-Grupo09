@@ -77,34 +77,31 @@ public class PlayerController : MonoBehaviour
         //anim.SetFloat("Magnitude", movimiento.magnitude);
 
         //Disparo
-        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11)
+        if (playerInfo.modo == ModoJug.Disparo)
         {
-            if (playerInfo.modo == ModoJug.Disparo)
+            if (Input.GetButtonDown("Fire1")) GetComponentInChildren<DispararJugador>().Shoot();
+        }
+        //Construcción
+        else
+        {
+            //Actualiza la torrePuntero en la posición del cursor
+            posEnCursor();
+            torrePuntero.transform.position = pos;
+
+            if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
+                && Vector3.Distance(pos, this.gameObject.transform.position) < 6) puedeConstruir = true;
+            else puedeConstruir = false;
+
+            if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
             {
-                if (Input.GetButtonDown("Fire1")) GetComponentInChildren<DispararJugador>().Shoot();
+                Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
+                GameManager.GetInstance().SubtractCoins(costePulpo);
             }
-            //Construcción
-            else
-            {
-                //Actualiza la torrePuntero en la posición del cursor
-                posEnCursor();
-                torrePuntero.transform.position = pos;
-
-                if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Torres"))
-                    && Vector3.Distance(pos, this.gameObject.transform.position) < 6) puedeConstruir = true;
-                else puedeConstruir = false;
-
-                if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
-                {
-                    Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
-                    GameManager.GetInstance().SubtractCoins(costePulpo);
-                }
-
-
-                //Cambia el color según si se puede o no construir
-                if (!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
-                else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
-            }
+            
+            
+            //Cambia el color según si se puede o no construir
+            if(!puedeConstruir) torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
+            else torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
         }
 
         //Cambio de modo
