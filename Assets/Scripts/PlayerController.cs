@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
             posEnCursor();
             torrePuntero.transform.position = pos;
 
-            if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Torres"))
+            if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
                 && Vector3.Distance(pos, this.gameObject.transform.position) < 6) puedeConstruir = true;
             else puedeConstruir = false;
 
