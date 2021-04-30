@@ -4459,6 +4459,7 @@ MonoBehaviour:
   monedasTotal: 120
   valorMoneda: 15
   oleadaActual: 0
+  enemigosRest: 0
 --- !u!4 &248255078
 Transform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &994567596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,8 +8001,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68b2e8839beefe4dac7a630b70aaa94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torre: {fileID: 2241420531181361487, guid: 0f7fa58ae13bf12419d9b0c3df4ff611, type: 3}
-  camino: {fileID: 522538349}
+  Erizo: {fileID: 0}
+  Pulpo: {fileID: 0}
+  Tortuga: {fileID: 0}
   velocityScale: 2.3
 --- !u!4 &1608531653
 Transform:
@@ -8594,19 +8596,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902335111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ee03d1ca871b345b2d547e67ce09bb, type: 3}
+  m_Script: {fileID: 11500000, guid: f4f21d46d279def40942e4946225ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oleadas:
-  - maxEnemigos: 5
-    enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
-      type: 3}
-  - maxEnemigos: 10
-    enemigo: {fileID: 9102612209686588781, guid: ba78e680e9878b5418dc3a855e29d1c3,
-      type: 3}
-  - maxEnemigos: 20
-    enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
-      type: 3}
 --- !u!4 &1902335113
 Transform:
   m_ObjectHideFlags: 0

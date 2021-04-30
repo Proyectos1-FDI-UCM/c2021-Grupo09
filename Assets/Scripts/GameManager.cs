@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int monedasTotal;
     public int valorMoneda;
-    public int oleadaActual = 1;
+    public int oleadaActual = 0;
     public int enemigosRest;
 
 
@@ -60,10 +60,14 @@ public class GameManager : MonoBehaviour
     {
         if (enemigosRest == 0)
         {
-             oleadaActual++;
+            oleadaActual++;
+            return true;
         }
-        return true;
-        //return oleadaActual;
+
+        else
+        {
+            return false;
+        }
     }
 
     public void SetUIManager(UIManager uim)

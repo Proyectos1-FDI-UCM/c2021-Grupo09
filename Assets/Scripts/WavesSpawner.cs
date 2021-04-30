@@ -20,6 +20,7 @@ public class WavesSpawner : MonoBehaviour
     private void Start()
     {
 
+        InvokeRepeating("Spawn", 2f, oleadas[GameManager.GetInstance().oleadaActual].maxEnemigos);
 
         // Si el spawn esta activado llama de manera continuada a la función Spawn
         /*for (int i=0; i < oleadas.Length; i++)
@@ -39,17 +40,17 @@ public class WavesSpawner : MonoBehaviour
     {
         while (activateSpawn)
         {
-            InvokeRepeating("Spawn", 2f, oleadas[0].maxEnemigos);
-            activateSpawn = false;
+            //InvokeRepeating("Spawn", 2f, oleadas[GameManager.GetInstance().oleadaActual].maxEnemigos);
+            Debug.Log("a");
+            activateSpawn = GameManager.GetInstance().CambioRonda();
+            Debug.Log("b");
         }
 
-        //Spawn();
-        //GameManager.GetInstance().EnemigosNivel(maxEnemigos);
-        //cooldown = maxEnemigos * diferencia;
+        //activateSpawn = GameManager.GetInstance().CambioRonda();
     }
 
     public void Spawn() // Spawn del enemigo
     {
-        Instantiate(oleadas[0].enemigo, transform.position, transform.rotation);
+        Instantiate(oleadas[GameManager.GetInstance().oleadaActual].enemigo, transform.position, transform.rotation);
     }
 }
