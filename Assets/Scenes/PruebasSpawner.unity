@@ -337,7 +337,6 @@ GameObject:
   - component: {fileID: 78788325}
   - component: {fileID: 78788324}
   - component: {fileID: 78788323}
-  - component: {fileID: 78788326}
   m_Layer: 11
   m_Name: Suelo
   m_TagString: Untagged
@@ -4143,18 +4142,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &78788326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78788321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8f7592d5a270f4aad36adc1bba5e9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &143528515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,7 +4446,6 @@ MonoBehaviour:
   monedasTotal: 120
   valorMoneda: 15
   oleadaActual: 0
-  enemigosRest: 0
 --- !u!4 &248255078
 Transform:
   m_ObjectHideFlags: 0
@@ -8596,9 +8582,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902335111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4f21d46d279def40942e4946225ced9, type: 3}
+  m_Script: {fileID: 11500000, guid: f051c0c0f992cdb4cbabab266825c88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 5
+  countdown: 0
+  oleadas:
+  - maxEnemigos: 5
+    enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
+      type: 3}
+  - maxEnemigos: 5
+    enemigo: {fileID: 9102612209686588781, guid: ba78e680e9878b5418dc3a855e29d1c3,
+      type: 3}
+  - maxEnemigos: 10
+    enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
+      type: 3}
 --- !u!4 &1902335113
 Transform:
   m_ObjectHideFlags: 0
