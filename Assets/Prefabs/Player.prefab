@@ -92,10 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68b2e8839beefe4dac7a630b70aaa94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torre: {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63, type: 3}
-  camino: {fileID: 0}
-  transparent: {fileID: 2100000, guid: 85bd6ad35cea48645a51f3e08265e469, type: 2}
-  red: {fileID: 2100000, guid: 96f07995621289c42872351dcdbf864e, type: 2}
+  Erizo: {fileID: 2241420531181361487, guid: cb896217bec26e044a2c965a688c5e0e, type: 3}
+  Pulpo: {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63, type: 3}
+  Tortuga: {fileID: 2241420531181361487, guid: 0f7fa58ae13bf12419d9b0c3df4ff611, type: 3}
   velocityScale: 2.3
 --- !u!50 &1399348030657172185
 Rigidbody2D:
@@ -115,7 +114,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1399348030657172184
@@ -128,7 +127,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

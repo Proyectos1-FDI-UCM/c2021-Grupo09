@@ -8,7 +8,7 @@ public class Monedas : MonoBehaviour
     public int monedasTotales; // Monedas totales del jugador
 
     // Método que destruye el GO al que va asociado tras una colisión
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(this.gameObject); // La moneda desaparece
         GameManager.GetInstance().AddCoins(); ; // Se añade + 5 monedas al contador de monedas

@@ -16,6 +16,26 @@ public class RecibaDanyo : MonoBehaviour
         saludRestante = saludTotal;
     }
 
+    private void Update()
+    {
+        if (saludRestante <= 0) // Si la salud del enemigo se reduce a cero
+        {
+            Destroy(this.gameObject); // Éste se "destruye"
+            if (gameObject.GetComponent<DivideEnDos>() != null)
+            {
+                gameObject.GetComponent<DivideEnDos>().Divide();
+            }
+            else if (gameObject.GetComponent<SpawnArea>() != null)
+            {
+                gameObject.GetComponent<SpawnArea>().Spawn();
+            }
+            for (int i = 0; i < monedasSalud; i++) // Y aparecerán tantas monedas
+            {
+                Instantiate(moneda, transform.position, transform.rotation); // Como sean necesarias
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Bala>() != null)
@@ -24,20 +44,22 @@ public class RecibaDanyo : MonoBehaviour
             // Borrar al hacer que pueda morir
             Debug.Log(saludRestante + " HP restante");
         }
-
-        if (saludRestante <= 0) // Si la salud del enemigo se reduce a cero
+    }
+    public void CurarEnemigo(int cura)
+    {
+        if (saludRestante < saludTotal)
         {
-            Destroy(this.gameObject); // Éste se "destruye"
-
-            if (gameObject.GetComponent<DivideEnDos>() != null)
+            saludRestante += cura;
+            if (saludRestante > saludTotal)
             {
-                gameObject.GetComponent<DivideEnDos>().Divide();
-            }
-
-            for (int i = 0; i < monedasSalud; i++) // Y aparecerán tantas monedas
-            {
-                Instantiate(moneda, transform.position, transform.rotation); // Como sean necesarias
+                saludRestante = saludTotal;
             }
         }
     }
+
+    public void DanarEnemigo(int dano)
+    {
+        saludRestante -= dano;
+    }
+
 }

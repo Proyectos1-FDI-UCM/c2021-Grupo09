@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     bool puedeConstruir;
     // Costes torres
     int costePulpo = 60;
+    private int vidaTotal = 100;
+    private int vidaRestante;
     struct PlayerInfo
     {
         public ModoJug modo;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         playerInfo.modo = ModoJug.Disparo;
+        vidaRestante = vidaTotal;
 
         //Iniciamos la torre por defecto del modo construir
         torre = Pulpo;
@@ -136,6 +139,35 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<Bala>() != null)
+        {
+            this.DanarJugador(other.gameObject.GetComponent<Bala>().damageDealt);
+        }
+    }
+
+    public void CurarJugador(int curacion)
+    {
+        if(vidaRestante < vidaTotal)
+        {
+            vidaRestante += curacion;
+            if(vidaRestante > vidaTotal)
+            {
+                vidaRestante = vidaTotal;
+            }
+        }
+        Debug.Log(vidaRestante + " actual");
+
+    }
+
+    public void DanarJugador(int daño)
+    {
+        vidaRestante -= daño;
+        Debug.Log(vidaRestante + " restante.");
+    }
+
     void posEnCursor()
     {
         pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
