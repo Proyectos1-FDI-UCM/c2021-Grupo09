@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     int costePulpo = 60;
     private int vidaTotal = 100;
     private int vidaRestante;
+    private UIManager theUIManager;
+
     struct PlayerInfo
     {
         public ModoJug modo;
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
         else if (torrePuntero.GetComponent<ShooterTortuga>() != null) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
         torrePuntero.layer = 0;
         torrePuntero.SetActive(false);
+
     }
 
     private void FixedUpdate()
@@ -147,33 +150,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Bala>() != null)
         {
-            this.DanarJugador(other.gameObject.GetComponent<Bala>().damageDealt);
+            instance.HurtPlayer(other.gameObject.GetComponent<Bala>().damageDealt);
         }
-    }
-
-    public void CurarJugador(int curacion)
-    {
-        if(vidaRestante < vidaTotal)
-        {
-            vidaRestante += curacion;
-            if(vidaRestante > vidaTotal)
-            {
-                vidaRestante = vidaTotal;
-            }
-        }
-        Debug.Log(vidaRestante + " actual");
-
-    }
-
-    public void DanarJugador(int daño)
-    {
-        vidaRestante -= daño;
-        if (vidaRestante <= 0)
-        {
-            Destroy(this.gameObject);
-            instance.DeadPlayer();
-        }
-        Debug.Log(vidaRestante + " restante.");
     }
 
     void posEnCursor()
@@ -182,5 +160,10 @@ public class PlayerController : MonoBehaviour
         pos.z = -1;
         pos.x = Mathf.RoundToInt(pos.x);
         pos.y = Mathf.RoundToInt(pos.y);
+    }
+
+    public void SetUIManager(UIManager uim)
+    {
+        theUIManager = uim;
     }
 }

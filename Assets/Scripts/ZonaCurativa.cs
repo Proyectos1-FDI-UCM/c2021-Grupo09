@@ -32,7 +32,7 @@ public class ZonaCurativa : MonoBehaviour
             if (other.gameObject.GetComponent<PlayerController>() != null)
             {
                 Debug.Log(Time.time);
-                other.gameObject.GetComponent<PlayerController>().CurarJugador(CuraPlayer);
+                GameManager.GetInstance().HealPlayer(CuraPlayer);
             }
             else
             {

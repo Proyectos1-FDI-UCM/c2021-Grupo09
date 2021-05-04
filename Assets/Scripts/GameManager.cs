@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     public int valorMoneda;
     public int oleadaActual = 0;
 
+    int vidaJug;
+    public int vidaMaxJug = 100;
+    public GameObject jugador;
+
+    int vidaBase;
+    public int vidaMaxBase = 100;
+
 
     void Awake()
     {
@@ -28,6 +35,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void Start()
+    {
+        vidaJug = vidaMaxJug;
+        vidaBase = vidaMaxBase;
+    }
+
     //Acceso a la instancia del Game Manager
     public static GameManager GetInstance()
     {
@@ -38,12 +52,12 @@ public class GameManager : MonoBehaviour
     {
         monedasTotal += valorMoneda;
         //Actualiza el contador de monedas de la UI
-        theUIManager.UpdateMonedas(monedasTotal);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
     }
     public void SubtractCoins(int costeTorre)
     {
         monedasTotal -= costeTorre;
-        theUIManager.UpdateMonedas(monedasTotal);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
     }
     public int GetCoins()
     {
@@ -58,5 +72,23 @@ public class GameManager : MonoBehaviour
     public void DeadPlayer()
     {
         //Lost State. Debe mostrarse por interfaz y reiniciarse el nivel o ir al menu principal.
+    }
+
+    public void HurtPlayer(int danyo)
+    {
+        vidaJug -= danyo;
+        if (vidaJug <= 0)
+        {
+            Destroy(jugador);
+            DeadPlayer();
+        }
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        Debug.Log(vidaJug + " restante.");
+    }
+
+    public void HealPlayer(int danyo)
+    {
+        vidaJug += danyo - (danyo + vidaJug - 100);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
     }
 }

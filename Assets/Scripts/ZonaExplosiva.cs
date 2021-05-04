@@ -26,7 +26,7 @@ public class ZonaExplosiva : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
-            other.gameObject.GetComponent<PlayerController>().DanarJugador(DañoPlayer);
+            GameManager.GetInstance().HurtPlayer(DañoPlayer);
         }
         else
         {
