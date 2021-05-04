@@ -2,21 +2,31 @@
 
 public class ShooterTortuga : MonoBehaviour
 {
+    public GameObject ray;
+    GameObject myRay;
+    int counter = 0;
+    bool active = false;
+
     void Start()
     {
-        
+        myRay = Instantiate(ray);
+        myRay.transform.position = new Vector3(transform.position.x + 0.14f, transform.position.y + 0.27f, -1);
+        myRay.SetActive(false);
     }
-
-    void Update()
+    
+    private void FixedUpdate()
     {
-        RaycastHit hit;
-        if(Physics2D.Raycast(transform.position, new Vector3(1, 0, 0), Mathf.Infinity))
+        counter++;
+        if (counter > 100)
         {
-            Debug.DrawRay(transform.position, new Vector3(1, 0, 0), Color.green, 10, true);
+            myRay.SetActive(true);
+            active = true;
+            counter = 0;
         }
-        else
+        else if (active && counter > 50)
         {
-            Debug.DrawRay(transform.position, new Vector3(1, 0, 0), Color.red, 10, true);
+            myRay.SetActive(false);
+            active = false;
         }
     }
 }

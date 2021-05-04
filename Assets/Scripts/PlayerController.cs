@@ -4,15 +4,14 @@ public class PlayerController : MonoBehaviour
 {
 
     enum ModoJug { Disparo, Construccion }
-    public GameObject Erizo;
-    public GameObject Pulpo;
-    public GameObject Tortuga;
-    GameObject torre;
+    public float playerScale;
+    public int distConstruc;
+    public GameObject[] torres = new GameObject[4]; // Las 4 torres
+    public int[] costes = new int[4]; // Costes de las torres
+    int indice = 0; // Indica a qué torre del vector se está apuntando
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
-    // Costes torres
-    int costePulpo = 60;
     private int vidaTotal = 100;
     private int vidaRestante;
     private UIManager theUIManager;
@@ -31,32 +30,20 @@ public class PlayerController : MonoBehaviour
     //Variable de tipo Vector2 para el movimiento
     private Vector2 movimiento;
 
-    private Animator anim;
     private GameManager instance;
 
     void Start()
     {
         //Acceso al componente rigidBody2D
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
         playerInfo.modo = ModoJug.Disparo;
         vidaRestante = vidaTotal;
         //Acceso al GameManager
         instance = GameManager.GetInstance();
 
-        //Iniciamos la torre por defecto del modo construir
-        torre = Pulpo;
-
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
-        torrePuntero = Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
-        torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
-        if (torrePuntero.GetComponent<ShooterErizo>() != null) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
-        else if (torrePuntero.GetComponent<ShooterPulpo>() != null) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
-        else if (torrePuntero.GetComponent<ShooterTortuga>() != null) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
-        torrePuntero.layer = 0;
-        torrePuntero.SetActive(false);
-
+        asignaTorrePuntero();
     }
 
     private void FixedUpdate()
@@ -74,16 +61,26 @@ public class PlayerController : MonoBehaviour
 
         if (movimientoX > 0)
         {
-            transform.localScale = new Vector3(-1.8f, 1.8f, 1);
+            transform.localScale = new Vector3(-playerScale, playerScale, 1);
         }
         else if (movimientoX < 0)
         {
-            transform.localScale = new Vector3(1.8f, 1.8f, 1);
+            transform.localScale = new Vector3(playerScale, playerScale, 1);
         }
 
-        //anim.SetFloat("Horizontal", movimientoX);
-        //anim.SetFloat("Vertical", movimientoY);
-        //anim.SetFloat("Magnitude", movimiento.magnitude);
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            indice = (indice + 1) % 4;
+            Destroy(torrePuntero);
+            asignaTorrePuntero();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            indice = (indice + 3) % 4;
+            Destroy(torrePuntero);
+            asignaTorrePuntero();
+        }
+
 
         //Que no se pueda construir ni disparar si el cursor está sobre la interfaz
         if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11) 
@@ -101,7 +98,7 @@ public class PlayerController : MonoBehaviour
                 torrePuntero.transform.position = pos;
 
                 if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
-                    && Vector3.Distance(pos, this.gameObject.transform.position) < 6)
+                    && Vector3.Distance(pos, this.gameObject.transform.position) < distConstruc)
                 {
                     puedeConstruir = true;
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
@@ -112,10 +109,10 @@ public class PlayerController : MonoBehaviour
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
                 }
 
-                if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costePulpo)
+                if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costes[indice])
                 {
-                    Instantiate(torre, pos, new Quaternion(0, 0, 0, 1));
-                    GameManager.GetInstance().SubtractCoins(costePulpo);
+                    Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
+                    GameManager.GetInstance().SubtractCoins(costes[indice]);
                 }
             }
         }
@@ -165,5 +162,16 @@ public class PlayerController : MonoBehaviour
     public void SetUIManager(UIManager uim)
     {
         theUIManager = uim;
+    }
+
+    void asignaTorrePuntero() {
+        torrePuntero = Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
+        torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
+        if (torrePuntero.GetComponent<ShooterErizo>() != null) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterPulpo>() != null) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterTortuga>() != null) torrePuntero.GetComponent<ShooterTortuga>().enabled = false;
+        //else if (torrePuntero.GetComponent<ShooterTortuga>() != null) torrePuntero.GetComponent<ShooterBallena>().enabled = false;
+        torrePuntero.layer = default;
+        if (playerInfo.modo == ModoJug.Disparo) torrePuntero.SetActive(false);
     }
 }
