@@ -54,4 +54,9 @@ public class GameManager : MonoBehaviour
     {
         theUIManager = uim;
     }
+
+    public void DeadPlayer()
+    {
+        //Lost State. Debe mostrarse por interfaz y reiniciarse el nivel o ir al menu principal.
+    }
 }

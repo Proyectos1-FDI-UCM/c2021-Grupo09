@@ -83,8 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b3ed6dc86700349becf36785dd3fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Da\xF1oPlayer": 5
+  "Da\xF1oPlayer": 10
   "Da\xF1oEnemigo": 5
+  momentoMuerte: 1.5
 --- !u!1 &592080205674679032
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movimiento;
 
     private Animator anim;
+    private GameManager instance;
 
     void Start()
     {
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerInfo.modo = ModoJug.Disparo;
         vidaRestante = vidaTotal;
+        //Acceso al GameManager
+        instance = GameManager.GetInstance();
 
         //Iniciamos la torre por defecto del modo construir
         torre = Pulpo;
@@ -165,6 +168,11 @@ public class PlayerController : MonoBehaviour
     public void DanarJugador(int daño)
     {
         vidaRestante -= daño;
+        if (vidaRestante <= 0)
+        {
+            Destroy(this.gameObject);
+            instance.DeadPlayer();
+        }
         Debug.Log(vidaRestante + " restante.");
     }
 
