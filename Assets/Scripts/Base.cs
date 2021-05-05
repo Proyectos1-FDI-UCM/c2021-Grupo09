@@ -14,10 +14,10 @@ public class Base : MonoBehaviour
         instance = GameManager.GetInstance();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //especificamos que la colision sea con un enemigo
-        if (collision.gameObject.GetComponent<Enemy>() != null)
+        if (collision.gameObject.GetComponent<RecibaDanyo>() != null)
         {
             instance.HurtBase(dañoRecibido);
             Destroy(collision.gameObject);
