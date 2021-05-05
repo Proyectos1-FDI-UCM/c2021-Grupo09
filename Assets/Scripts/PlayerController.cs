@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     bool puedeConstruir;
     private int vidaTotal = 100;
     private int vidaRestante;
+
     private UIManager theUIManager;
 
     struct PlayerInfo
@@ -109,10 +110,10 @@ public class PlayerController : MonoBehaviour
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
                 }
 
-                if (Input.GetButtonDown("Fire1") && puedeConstruir && GameManager.GetInstance().GetCoins() >= costes[indice])
+                if (Input.GetButtonDown("Fire1") && puedeConstruir && instance.GetCoins() >= costes[indice])
                 {
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
-                    GameManager.GetInstance().SubtractCoins(costes[indice]);
+                    instance.SubtractCoins(costes[indice]);
                 }
             }
         }

@@ -91,4 +91,15 @@ public class GameManager : MonoBehaviour
         vidaJug += danyo - (danyo + vidaJug - 100);
         theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
     }
+
+    public void HurtBase(int danyo)
+    {
+        vidaBase -= danyo;
+        if (vidaBase <= 0)
+        {
+            DeadPlayer();
+        }
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        Debug.Log("Vida Base: " + vidaBase);
+    }
 }
