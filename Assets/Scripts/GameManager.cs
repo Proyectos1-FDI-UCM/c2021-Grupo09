@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     private UIManager theUIManager;
 
     public int monedasTotal;
+    int monedasIniciales = 120;
     public int valorMoneda;
     public int oleadaActual = 0;
 
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
     int vidaBase;
     public int vidaMaxBase = 100;
 
+    public bool playerWon;
+    public int nivel = 0;
+    public string[] scenesInOrder;
 
     void Awake()
     {
@@ -69,9 +74,79 @@ public class GameManager : MonoBehaviour
         theUIManager = uim;
     }
 
+    //Cuando el jugador muere
     public void DeadPlayer()
     {
         //Lost State. Debe mostrarse por interfaz y reiniciarse el nivel o ir al menu principal.
+
+        playerWon = false;
+        EndLevel(playerWon);
+    }
+
+    //Cuando se pierde la partida
+    public void LostGame()
+    {
+        nivel = 2;
+        ChangeScene(scenesInOrder[nivel]);
+        if (Input.anyKey)
+        {
+            Invoke(nameof(Restart),1);
+        }
+    }
+
+    //Cuando se gana la aprtida
+    public void WonGame()
+    {
+        nivel = 3;
+        ChangeScene(scenesInOrder[nivel]);
+        if (Input.anyKey)
+        {
+            Invoke(nameof(Restart), 1);
+        }
+    }
+
+    //Cada vez que terminas un nivel
+    public void EndLevel(bool victory)
+    {
+        if (victory == false)
+        {
+            Invoke(nameof(LostGame), 1);
+        }
+        else if(victory == true && nivel >= 2)
+        {
+            Invoke(nameof(WonGame), 1);
+        }
+
+        else
+        {
+            Invoke(nameof(NextLevel), 1);
+        }
+    }
+
+    // Manejar los cambios de escena
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    //Cuando pasas de nivel
+    public void NextLevel()
+    {
+        nivel += 1;
+        monedasTotal = monedasIniciales;
+        vidaBase = vidaMaxBase;
+        vidaJug = vidaMaxJug;
+        ChangeScene(scenesInOrder[nivel]);
+    }
+
+    //Volver a empezar el juego
+    public void Restart()
+    {
+        nivel = 0;
+        monedasTotal = monedasIniciales;
+        vidaBase = vidaMaxBase;
+        vidaJug = vidaMaxJug;
+        ChangeScene(scenesInOrder[nivel]);
     }
 
     public void HurtPlayer(int danyo)
