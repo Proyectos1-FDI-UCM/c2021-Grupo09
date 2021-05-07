@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     int monedasIniciales = 120;
     public int valorMoneda;
     public int oleadaActual = 0;
+    public int maxOleadas;
 
     int vidaJug;
     public int vidaMaxJug = 100;
@@ -81,6 +82,16 @@ public class GameManager : MonoBehaviour
 
         playerWon = false;
         EndLevel(playerWon);
+    }
+
+    //Cuando todos los enemigos de todas las oleadas estan muertos
+    public void AllEnemiesDead()
+    {
+        if (oleadaActual >= maxOleadas)
+        {
+            playerWon = true;
+            EndLevel(playerWon);
+        }
     }
 
     //Cuando se pierde la partida
