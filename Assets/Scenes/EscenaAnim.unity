@@ -4385,9 +4385,13 @@ MonoBehaviour:
   monedasTotal: 120
   valorMoneda: 15
   oleadaActual: 1
+  maxOleadas: 0
   vidaMaxJug: 100
   jugador: {fileID: 0}
   vidaMaxBase: 100
+  playerWon: 0
+  nivel: 0
+  scenesInOrder: []
 --- !u!4 &248255078
 Transform:
   m_ObjectHideFlags: 0
