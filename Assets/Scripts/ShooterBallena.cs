@@ -6,7 +6,6 @@ public class ShooterBallena : MonoBehaviour
 {
     public GameObject balaBallena;
     public float shootCooldown;
-    Transform enemyTransform;
     float enemyX, enemyY;
     float lastShotTime;
     bool isShooting;
@@ -20,7 +19,6 @@ public class ShooterBallena : MonoBehaviour
     {
         if (!isShooting && Time.time >= (lastShotTime + shootCooldown))
         {
-            enemyTransform = collision.transform;
             enemyX = collision.transform.position.x;
             enemyY = collision.transform.position.y;
             Instantiate(balaBallena, transform.position, Quaternion.Euler(0, 0, 0), gameObject.transform);

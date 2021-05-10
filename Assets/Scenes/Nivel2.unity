@@ -3904,9 +3904,13 @@ MonoBehaviour:
   monedasTotal: 120
   valorMoneda: 15
   oleadaActual: 1
+  maxOleadas: 0
   vidaMaxJug: 100
   jugador: {fileID: 1551829760}
   vidaMaxBase: 100
+  playerWon: 0
+  nivel: 0
+  scenesInOrder: []
 --- !u!4 &248255078
 Transform:
   m_ObjectHideFlags: 0
@@ -7853,7 +7857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f87e3ec897e8e8f428a060bf754c298d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
