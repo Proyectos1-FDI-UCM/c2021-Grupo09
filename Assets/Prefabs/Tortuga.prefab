@@ -191,5 +191,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aef95d3ef1a7fa4ea628377e153f908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootCooldown: 4
+  shootCooldown: 8
   ray: {fileID: 5072286887356789971, guid: d5eb70445a777b74d99186d808305218, type: 3}

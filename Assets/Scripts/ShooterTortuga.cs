@@ -4,47 +4,61 @@ using UnityEngine;
 
 public class ShooterTortuga : MonoBehaviour
 {
+    enum estadoTortuga { espera, apunta, dispara}
     public float shootCooldown;
-    float enemyX, enemyY;
     float lastShotTime;
+    // shootCooldown es el tiempo entre que empieza un disparo y el siguiente. 1/4 del tiempo estará apuntando, otro 1/4 disparando
+    // y el otro 1/2 estará recargando, en estado de espera
 
     public GameObject ray;
     GameObject myRay;
+    Transform enemy;
+    bool followEnemy = false;
     int counter = 0;
     bool active = false;
-    // Start is called before the first frame update
+    estadoTortuga estado;
+
     void Start()
     {
         lastShotTime = -shootCooldown;
 
         myRay = Instantiate(ray);
-        myRay.transform.position = new Vector3(transform.position.x + 0.14f, transform.position.y + 0.27f, -1);
-        myRay.SetActive(false);
+        myRay.transform.position = new Vector3(transform.position.x + 0.3f, transform.position.y + 0.3f, -1);
+        myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0);
+        estado = estadoTortuga.espera;
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
+    {
+        // Si hay enemigo, apunta en su dirección
+        if (followEnemy && enemy != null)
+        {
+            myRay.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(enemy.position.y - transform.position.y, enemy.position.x - transform.position.x) * Mathf.Rad2Deg);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if (Time.time >= (lastShotTime + shootCooldown))
         {
-            enemyX = collision.transform.position.x;
-            enemyY = collision.transform.position.y;
-            myRay = Instantiate(ray, transform.position, Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(enemyX, enemyY) - transform.position), Time.deltaTime));
+            enemy = collider.transform; // Se guarda el objetivo
+            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.2f); // Semi-transparente para el apuntado
+            myRay.transform.localScale = new Vector3(myRay.transform.localScale.x, 0.5f*myRay.transform.localScale.y, 1); // Más estrecho en el apuntado
+            followEnemy = true; // Tiene que perseguir al objetivo
+            estado = estadoTortuga.apunta;
             lastShotTime = Time.time;
         }
-        else if (Time.time >= lastShotTime + shootCooldown / 2)
+        else if (estado == estadoTortuga.dispara && Time.time >= lastShotTime + shootCooldown / 2)
         {
-            Destroy(myRay);
+            // Se acaba el disparo
+            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0);
+            estado = estadoTortuga.espera;
         }
-    }
-    public float GetEnemyX()
-    {
-        return enemyX;
-    }
-    public float GetEnemyY()
-    {
-        return enemyY;
-    }
-    private void OnDestroy()
-    {
-        Destroy(myRay);
+        else if (estado == estadoTortuga.apunta && Time.time >= lastShotTime + shootCooldown / 4)
+        {
+            // Deja de apuntar y comienza el disparo en sí
+            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1); // Color opaco
+            myRay.transform.localScale = new Vector3(myRay.transform.localScale.x, 2*myRay.transform.localScale.y, 1); // Mayor grosor
+            followEnemy = false; // Tiene que dejar de perseguir
+            estado = estadoTortuga.dispara;
+        }
     }
 }
