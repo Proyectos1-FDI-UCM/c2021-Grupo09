@@ -11,6 +11,7 @@ public class Monedas : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(this.gameObject); // La moneda desaparece
+        //FindObjectOfType<AudioManager>().Play("Monedas"); // Reproducción del sonido de las monedas
         GameManager.GetInstance().AddCoins(); ; // Se añade + 5 monedas al contador de monedas
     }
 }
