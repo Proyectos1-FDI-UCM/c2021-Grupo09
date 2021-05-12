@@ -19,7 +19,7 @@ public class RayoTortuga : MonoBehaviour
                 foreach (GameObject g in targets)
                 {
                     if (g.GetComponent<PlayerController>()) GameManager.GetInstance().HurtPlayer(DañoPlayer);
-                    else g.GetComponent<RecibaDanyo>().DanarEnemigo(DañoEnemigo);
+                    else if(g.GetComponent<RecibaDanyo>()) g.GetComponent<RecibaDanyo>().DanarEnemigo(DañoEnemigo);
                 }
                 ultimoDaño = Time.time;
             }
