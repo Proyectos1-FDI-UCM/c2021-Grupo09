@@ -75,10 +75,9 @@ public class WavesSpawner : MonoBehaviour
             estado = SpawnState.counting; // Se inicializa el estado en contando
             countdown = cooldown;
 
-            if (GameManager.GetInstance().oleadaActual + 1 > oleadas.Length - 1)
+            if (GameManager.GetInstance().oleadaActual > oleadas.Length - 2)
             {
-                GameManager.GetInstance().oleadaActual = 0;
-                Debug.Log("Se acabó, has ganado :)");
+                GameManager.GetInstance().EndLevel(true);
             }
             else
             {

@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     int vidaBase;
     public int vidaMaxBase = 100;
 
-    public bool playerWon;
     public int nivel = 0;
     public string[] scenesInOrder;
 
@@ -79,9 +78,7 @@ public class GameManager : MonoBehaviour
     public void DeadPlayer()
     {
         //Lost State. Debe mostrarse por interfaz y reiniciarse el nivel o ir al menu principal.
-
-        playerWon = false;
-        EndLevel(playerWon);
+        EndLevel(false);
     }
 
     //Cuando todos los enemigos de todas las oleadas estan muertos
@@ -89,15 +86,14 @@ public class GameManager : MonoBehaviour
     {
         if (oleadaActual >= maxOleadas)
         {
-            playerWon = true;
-            EndLevel(playerWon);
+            EndLevel(true);
         }
     }
 
     //Cuando se pierde la partida
     public void LostGame()
     {
-        nivel = 2;
+        nivel = 3;
         ChangeScene(scenesInOrder[nivel]);
         if (Input.anyKey)
         {
@@ -108,7 +104,7 @@ public class GameManager : MonoBehaviour
     //Cuando se gana la aprtida
     public void WonGame()
     {
-        nivel = 3;
+        nivel = 4;
         ChangeScene(scenesInOrder[nivel]);
         if (Input.anyKey)
         {
@@ -119,11 +115,11 @@ public class GameManager : MonoBehaviour
     //Cada vez que terminas un nivel
     public void EndLevel(bool victory)
     {
-        if (victory == false)
+        if (!victory)
         {
             Invoke(nameof(LostGame), 1);
         }
-        else if(victory == true && nivel >= 2)
+        else if(victory && nivel >= 2)
         {
             Invoke(nameof(WonGame), 1);
         }
