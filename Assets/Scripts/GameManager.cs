@@ -95,10 +95,6 @@ public class GameManager : MonoBehaviour
     {
         nivel = 3;
         ChangeScene(scenesInOrder[nivel]);
-        if (Input.anyKey)
-        {
-            Invoke(nameof(Restart),1);
-        }
     }
 
     //Cuando se gana la aprtida
@@ -106,20 +102,16 @@ public class GameManager : MonoBehaviour
     {
         nivel = 4;
         ChangeScene(scenesInOrder[nivel]);
-        if (Input.anyKey)
-        {
-            Invoke(nameof(Restart), 1);
-        }
     }
 
     //Cada vez que terminas un nivel
     public void EndLevel(bool victory)
     {
-        if (!victory)
+        if (!victory && nivel <= 3)
         {
             Invoke(nameof(LostGame), 1);
         }
-        else if(victory && nivel >= 2)
+        else if(victory && nivel >= 3)
         {
             Invoke(nameof(WonGame), 1);
         }
@@ -146,14 +138,22 @@ public class GameManager : MonoBehaviour
         ChangeScene(scenesInOrder[nivel]);
     }
 
+    public void PressAnyKey(bool keyPressed)
+    {
+        if (keyPressed == true) 
+        { 
+            Invoke(nameof(Restart), 1); 
+        }
+    }
+
     //Volver a empezar el juego
     public void Restart()
     {
         nivel = 0;
+        ChangeScene(scenesInOrder[nivel]);
         monedasTotal = monedasIniciales;
         vidaBase = vidaMaxBase;
         vidaJug = vidaMaxJug;
-        ChangeScene(scenesInOrder[nivel]);
     }
 
     public void HurtPlayer(int danyo)
