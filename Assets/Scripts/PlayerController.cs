@@ -99,7 +99,8 @@ public class PlayerController : MonoBehaviour
                 torrePuntero.transform.position = pos;
 
                 if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
-                    && Vector3.Distance(pos, this.gameObject.transform.position) < distConstruc)
+                    && Vector3.Distance(pos, this.gameObject.transform.position) < distConstruc
+                    && instance.GetCoins() >= costes[indice])
                 {
                     puedeConstruir = true;
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparente
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
                 }
 
-                if (Input.GetButtonDown("Fire1") && puedeConstruir && instance.GetCoins() >= costes[indice])
+                if (Input.GetButtonDown("Fire1") && puedeConstruir)
                 {
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
                     instance.SubtractCoins(costes[indice]);
