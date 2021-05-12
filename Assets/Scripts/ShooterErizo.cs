@@ -24,7 +24,7 @@ public class ShooterErizo : MonoBehaviour
         {
             // Instanciamos un clon del prefab de la bala 
             // en la escena en la posición del cañón del erizo (poseedor del componente ShooterErizo)
-            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 90 * i));
+            Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 45 + (90 * i)));
         }
     }
 
