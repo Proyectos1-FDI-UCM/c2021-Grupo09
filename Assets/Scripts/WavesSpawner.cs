@@ -36,7 +36,6 @@ public class WavesSpawner : MonoBehaviour
             {
                 WaveCompleted(); // La oleada ha sido terminada
                 return;
-                GameManager.GetInstance().AllEnemiesDead();
             }
             else
             {
@@ -75,6 +74,15 @@ public class WavesSpawner : MonoBehaviour
         {
             estado = SpawnState.counting; // Se inicializa el estado en contando
             countdown = cooldown;
+
+            if (GameManager.GetInstance().oleadaActual > oleadas.Length - 2)
+            {
+                GameManager.GetInstance().EndLevel(true);
+            }
+            else
+            {
+                GameManager.GetInstance().oleadaActual++;
+            }
         }
 
         IEnumerator SpawnWave(Oleada _oleada) // Se crea una corrutina
