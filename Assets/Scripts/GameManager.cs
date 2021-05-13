@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         {
             Invoke(nameof(LostGame), 1);
         }
-        else if(victory && nivel >= 3)
+        else if (victory && nivel >= 3)
         {
             Invoke(nameof(WonGame), 1);
         }

@@ -59,23 +59,17 @@ public class WavesSpawner : MonoBehaviour
 
         bool EnemiesAlive() // Booleano para comprobar si quedan o no enemigos
         {
-            if (GameManager.GetInstance().enemigosTotales == 0)
-            {
-                return false;
-            }
-            /*searchCountdown -= Time.deltaTime;
+
+            searchCountdown -= Time.deltaTime;
             if (searchCountdown <= 0f)
             {
                 searchCountdown = 1f;
-                if (gameObject.layer == 12)
+                if (GameManager.GetInstance().enemigosTotales == 0)
                 {
                     return false;
                 }
-            }*/
-            else
-            {
-                return true;
             }
+            return true;
         }
 
         void WaveCompleted() // Método para comprobar si se ha completado la oleada actual
