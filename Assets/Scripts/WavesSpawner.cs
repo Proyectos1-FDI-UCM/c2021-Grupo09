@@ -49,6 +49,7 @@ public class WavesSpawner : MonoBehaviour
             {
                 // Seguirán apareciendo oleadas de enemigos
                 StartCoroutine(SpawnWave(oleadas[GameManager.GetInstance().oleadaActual]));
+                Debug.Log("Dice que se va de los límites de la array: " + GameManager.GetInstance().oleadaActual);
             }
         }
         else // De lo contrario
@@ -58,7 +59,11 @@ public class WavesSpawner : MonoBehaviour
 
         bool EnemiesAlive() // Booleano para comprobar si quedan o no enemigos
         {
-            searchCountdown -= Time.deltaTime;
+            if (GameManager.GetInstance().enemigosTotales == 0)
+            {
+                return false;
+            }
+            /*searchCountdown -= Time.deltaTime;
             if (searchCountdown <= 0f)
             {
                 searchCountdown = 1f;
@@ -66,8 +71,11 @@ public class WavesSpawner : MonoBehaviour
                 {
                     return false;
                 }
+            }*/
+            else
+            {
+                return true;
             }
-            return true;
         }
 
         void WaveCompleted() // Método para comprobar si se ha completado la oleada actual
@@ -75,7 +83,7 @@ public class WavesSpawner : MonoBehaviour
             estado = SpawnState.counting; // Se inicializa el estado en contando
             countdown = cooldown;
 
-            if (GameManager.GetInstance().oleadaActual > oleadas.Length - 2)
+            if (GameManager.GetInstance().oleadaActual > oleadas.Length - 2 && GameManager.GetInstance().enemigosTotales == 0)
             {
                 GameManager.GetInstance().EndLevel(true);
             }
@@ -93,6 +101,8 @@ public class WavesSpawner : MonoBehaviour
             for (int i = 0; i < oleadas[GameManager.GetInstance().oleadaActual].maxEnemigos; i++)
             {
                 Instantiate(oleadas[GameManager.GetInstance().oleadaActual].enemigo, transform.position, transform.rotation);
+                GameManager.GetInstance().enemigosTotales++;
+                Debug.Log("Ahora mismo hay " + GameManager.GetInstance().enemigosTotales + " enemigos en el nivel");
                 yield return new WaitForSeconds(2f); // Tiempo de espera de 2s entre instancias
             }
 

@@ -21,6 +21,8 @@ public class RecibaDanyo : MonoBehaviour
         if (saludRestante <= 0) // Si la salud del enemigo se reduce a cero
         {
             Destroy(this.gameObject); // Éste se "destruye"
+            GameManager.GetInstance().enemigosTotales--;
+            Debug.Log("Ahora mismo hay " + GameManager.GetInstance().enemigosTotales + " enemigos en el nivel");
             if (gameObject.GetComponent<DivideEnDos>() != null)
             {
                 gameObject.GetComponent<DivideEnDos>().Divide();

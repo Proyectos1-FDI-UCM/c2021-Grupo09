@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int valorMoneda;
     public int oleadaActual = 0;
     public int maxOleadas;
+    public int enemigosTotales; // Entero para saber cuántos enemigos quedan
 
     int vidaJug;
     public int vidaMaxJug = 100;
