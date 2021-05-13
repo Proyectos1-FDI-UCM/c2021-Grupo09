@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         nivel += 1;
+        oleadaActual = 0;
         monedasTotal = monedasIniciales;
         vidaBase = vidaMaxBase;
         vidaJug = vidaMaxJug;
