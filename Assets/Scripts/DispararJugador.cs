@@ -7,10 +7,23 @@ using UnityEngine;
 public class DispararJugador : MonoBehaviour
 {
     public GameObject gameObjectBala;
+    private float tiempoAux = 0;
+    public float shooterCooldown;
 
     public void Shoot()
     {
-        // Crea bala donde esté el origen, mirando hacia donde mira este GameObject (hacia el ratón)
-        Instantiate(gameObjectBala, transform.position, transform.rotation);
+        if (tiempoAux <= 0)
+        {
+            // Crea bala donde esté el origen, mirando hacia donde mira este GameObject (hacia el ratón)
+            Instantiate(gameObjectBala, transform.position, transform.rotation);
+
+            tiempoAux = shooterCooldown;
+        }
+    }
+
+    void Update()
+    {
+        //El tiempo auxiliar sera ese tiempo menos el actual
+        tiempoAux = tiempoAux - Time.deltaTime;
     }
 }

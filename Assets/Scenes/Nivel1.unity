@@ -4353,6 +4353,11 @@ PrefabInstance:
       propertyPath: distConstruc
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: shooterCooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1399348030657172187, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4412,6 +4417,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399348030755280966, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: shooterCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399348030755280969, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5628800925617191534, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
         type: 3}
@@ -10940,7 +10955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f051c0c0f992cdb4cbabab266825c88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 2
   oleadas:
   - maxEnemigos: 10
     enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
@@ -10948,8 +10963,11 @@ MonoBehaviour:
   - maxEnemigos: 7
     enemigo: {fileID: 9102612209686588781, guid: ba78e680e9878b5418dc3a855e29d1c3,
       type: 3}
-  - maxEnemigos: 25
-    enemigo: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b,
+  - maxEnemigos: 6
+    enemigo: {fileID: 473657863078933303, guid: 17f774ce00cd0fe4391d32374075704d,
+      type: 3}
+  - maxEnemigos: 8
+    enemigo: {fileID: 473657863078933303, guid: 5491a6f5d8f1ad24ab243ddcb52957e5,
       type: 3}
 --- !u!4 &2048163801
 Transform:

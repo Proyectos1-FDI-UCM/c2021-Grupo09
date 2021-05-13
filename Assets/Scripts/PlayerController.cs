@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         //Moviviento
         float movimientoX = Input.GetAxis("Horizontal");
         float movimientoY = Input.GetAxis("Vertical");
+        float momentoDisparo = 0;
         movimiento = new Vector2(movimientoX, movimientoY);
         movimiento.Normalize();
 
@@ -69,31 +70,33 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(playerScale, playerScale, 1);
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-            indice = (indice + 1) % 4;
-            Destroy(torrePuntero);
-            asignaTorrePuntero();
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            indice = (indice + 3) % 4;
-            Destroy(torrePuntero);
-            asignaTorrePuntero();
-        }
-
-
         //Que no se pueda construir ni disparar si el cursor está sobre la interfaz
         if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11) 
         {
             //Disparo
             if (playerInfo.modo == ModoJug.Disparo)
             {
-                if (Input.GetButtonDown("Fire1")) GetComponentInChildren<DispararJugador>().Shoot();
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    GetComponentInChildren<DispararJugador>().Shoot();
+                }
+                
             }
             //Construcción
             else
             {
+                if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+                {
+                    indice = (indice + 1) % 4;
+                    Destroy(torrePuntero);
+                    asignaTorrePuntero();
+                }
+                else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+                {
+                    indice = (indice + 3) % 4;
+                    Destroy(torrePuntero);
+                    asignaTorrePuntero();
+                }
                 //Actualiza la torrePuntero en la posición del cursor
                 posEnCursor();
                 torrePuntero.transform.position = pos;
