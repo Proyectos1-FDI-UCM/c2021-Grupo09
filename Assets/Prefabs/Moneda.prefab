@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monedasTotales: 0
+  tiempoDespawn: 10
 --- !u!61 &6561259954783762249
 BoxCollider2D:
   m_ObjectHideFlags: 0

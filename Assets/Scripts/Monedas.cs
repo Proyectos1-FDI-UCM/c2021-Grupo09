@@ -7,8 +7,9 @@ public class Monedas : MonoBehaviour
     // Declaración de variables
     public int monedasTotales; // Monedas totales del jugador
     private float momentoSpawn;
+    private float momentoActual;
     public float tiempoDespawn = 10f;
-    private void Strart()
+    private void Start()
     {
         momentoSpawn = Time.time;
     }
@@ -23,7 +24,8 @@ public class Monedas : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= momentoSpawn + tiempoDespawn)
+        momentoActual = Time.time;
+        if (momentoActual >= momentoSpawn + tiempoDespawn)
         {
             Destroy(this.gameObject);
         }
