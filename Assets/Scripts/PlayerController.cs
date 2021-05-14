@@ -174,7 +174,11 @@ public class PlayerController : MonoBehaviour
         torrePuntero = Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
         torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
         if (torrePuntero.GetComponent<ShooterErizo>()) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
-        else if (torrePuntero.GetComponent<ShooterPulpo>()) torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+        else if (torrePuntero.GetComponent<ShooterPulpo>())
+        {
+            torrePuntero.GetComponent<ShooterPulpo>().enabled = false;
+            torrePuntero.GetComponent<Animator>().enabled = false;
+        }
         else torrePuntero.transform.GetChild(0).gameObject.SetActive(false);
         torrePuntero.layer = default;
         if (playerInfo.modo == ModoJug.Disparo) torrePuntero.SetActive(false);
