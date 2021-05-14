@@ -76,7 +76,9 @@ public class PlayerController : MonoBehaviour
             //Disparo
             if (playerInfo.modo == ModoJug.Disparo)
             {
-                if (Input.GetButtonDown("Fire1"))
+                // Ahora funciona manteniendo pulsado el botón. Si se quiere cambiar, quitar linea 81 y añadir 80
+                // if(Input.GetButtonDown("Fire1"))
+                if (Input.GetButton("Fire1"))
                 {
                     GetComponentInChildren<DispararJugador>().Shoot();
                 }

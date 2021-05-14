@@ -34,7 +34,7 @@ public class ZonaCurativa : MonoBehaviour
                 Debug.Log(Time.time);
                 GameManager.GetInstance().HealPlayer(CuraPlayer);
             }
-            else
+            else if(other.gameObject.GetComponent<RecibaDanyo>() != null) // Necesario por si se ha destruido el objeto mientras
             {
                 other.gameObject.GetComponent<RecibaDanyo>().CurarEnemigo(CuraEnemigo);
             }

@@ -92,9 +92,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68b2e8839beefe4dac7a630b70aaa94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Erizo: {fileID: 2241420531181361487, guid: cb896217bec26e044a2c965a688c5e0e, type: 3}
-  Pulpo: {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63, type: 3}
-  Tortuga: {fileID: 2241420531181361487, guid: 0f7fa58ae13bf12419d9b0c3df4ff611, type: 3}
+  playerScale: 1.8
+  distConstruc: 6
+  torres:
+  - {fileID: 2241420531181361487, guid: cb896217bec26e044a2c965a688c5e0e, type: 3}
+  - {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63, type: 3}
+  - {fileID: 2241420531181361487, guid: 0f7fa58ae13bf12419d9b0c3df4ff611, type: 3}
+  - {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5, type: 3}
+  costes: 320000004600000096000000c8000000
   velocityScale: 2.3
 --- !u!50 &1399348030657172185
 Rigidbody2D:
@@ -188,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjectBala: {fileID: 6357269262649181129, guid: 6083f17dd085d2c4fbd41f89ebcd3f0b,
     type: 3}
+  shooterCooldown: 1
 --- !u!1 &1399348031436407765
 GameObject:
   m_ObjectHideFlags: 0
