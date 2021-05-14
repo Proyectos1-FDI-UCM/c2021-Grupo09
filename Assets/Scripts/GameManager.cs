@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public int monedasTotal;
     int monedasIniciales = 120;
-    public int valorMoneda;
+    public int valorMoneda = 15;
     public int oleadaActual = 0;
     public int maxOleadas;
     public int enemigosTotales; // Entero para saber cuántos enemigos quedan
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         vidaJug = vidaMaxJug;
         vidaBase = vidaMaxBase;
+        monedasTotal = monedasIniciales;
     }
 
     //Acceso a la instancia del Game Manager

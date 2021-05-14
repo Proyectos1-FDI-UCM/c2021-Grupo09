@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "Da\xF1oPlayer": 20
   "Da\xF1oEnemigo": 20
-  momentoMuerte: 1.5
+  momentoMuerte: 0.3
 --- !u!1 &3137364774154370751
 GameObject:
   m_ObjectHideFlags: 0

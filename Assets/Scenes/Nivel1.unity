@@ -4288,76 +4288,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1399348030657172184, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: Ballena
-      value: 
-      objectReference: {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5,
-        type: 3}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: torres.Array.data[0]
-      value: 
-      objectReference: {fileID: 2241420531181361487, guid: cb896217bec26e044a2c965a688c5e0e,
-        type: 3}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: torres.Array.data[2]
-      value: 
-      objectReference: {fileID: 2241420531181361487, guid: 0f7fa58ae13bf12419d9b0c3df4ff611,
-        type: 3}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: torres.Array.data[1]
-      value: 
-      objectReference: {fileID: 2241420531181361487, guid: 47ed2eca95654ac4c9976d23fdb9ce63,
-        type: 3}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: torres.Array.data[3]
-      value: 
-      objectReference: {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5,
-        type: 3}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: costes.Array.data[0]
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: costes.Array.data[1]
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: costes.Array.data[2]
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: costes.Array.data[3]
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: playerScale
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: distConstruc
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: shooterCooldown
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1399348030657172187, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4418,23 +4348,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1399348030755280966, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: shooterCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399348030755280969, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628800925617191534, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-        type: 3}
-      propertyPath: saludTotal
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5628800925617191534, guid: 4e78b7ecab9f49a4e88b58073f6b1aba, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e78b7ecab9f49a4e88b58073f6b1aba, type: 3}
 --- !u!1 &278161923 stripped
 GameObject:
@@ -11143,15 +11057,15 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 278161923}
+    - target: {fileID: 1948301237246289924, guid: 7e8358b8ae935504986ec33c26893a72,
+        type: 3}
+      propertyPath: maxOleadas
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1948301237246289925, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1948301237246289925, guid: 7e8358b8ae935504986ec33c26893a72,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1948301237246289927, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}

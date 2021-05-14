@@ -20,6 +20,7 @@ public class Base : MonoBehaviour
         if (collision.gameObject.GetComponent<RecibaDanyo>() != null)
         {
             instance.HurtBase(dañoRecibido);
+            instance.enemigosTotales--;
             Destroy(collision.gameObject);
         }
     }
