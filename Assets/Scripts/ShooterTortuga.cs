@@ -14,8 +14,6 @@ public class ShooterTortuga : MonoBehaviour
     GameObject myRay;
     Transform enemy;
     bool followEnemy = false;
-    int counter = 0;
-    bool active = false;
     estadoTortuga estado;
 
     void Start()
@@ -34,6 +32,21 @@ public class ShooterTortuga : MonoBehaviour
         {
             myRay.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(enemy.position.y - transform.position.y, enemy.position.x - transform.position.x) * Mathf.Rad2Deg);
         }
+
+        if (estado == estadoTortuga.dispara && Time.time >= lastShotTime + shootCooldown / 2)
+        {
+            // Se acaba el disparo
+            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0);
+            estado = estadoTortuga.espera;
+        }
+        else if (estado == estadoTortuga.apunta && Time.time >= lastShotTime + shootCooldown / 4)
+        {
+            // Deja de apuntar y comienza el disparo en sí
+            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1); // Color opaco
+            myRay.transform.localScale = new Vector3(myRay.transform.localScale.x, 2 * myRay.transform.localScale.y, 1); // Mayor grosor
+            followEnemy = false; // Tiene que dejar de perseguir
+            estado = estadoTortuga.dispara;
+        }
     }
     private void OnTriggerStay2D(Collider2D collider)
     {
@@ -45,20 +58,6 @@ public class ShooterTortuga : MonoBehaviour
             followEnemy = true; // Tiene que perseguir al objetivo
             estado = estadoTortuga.apunta;
             lastShotTime = Time.time;
-        }
-        else if (estado == estadoTortuga.dispara && Time.time >= lastShotTime + shootCooldown / 2)
-        {
-            // Se acaba el disparo
-            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0);
-            estado = estadoTortuga.espera;
-        }
-        else if (estado == estadoTortuga.apunta && Time.time >= lastShotTime + shootCooldown / 4)
-        {
-            // Deja de apuntar y comienza el disparo en sí
-            myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1); // Color opaco
-            myRay.transform.localScale = new Vector3(myRay.transform.localScale.x, 2*myRay.transform.localScale.y, 1); // Mayor grosor
-            followEnemy = false; // Tiene que dejar de perseguir
-            estado = estadoTortuga.dispara;
         }
     }
 }

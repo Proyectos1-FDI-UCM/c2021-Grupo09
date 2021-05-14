@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         //Moviviento
         float movimientoX = Input.GetAxis("Horizontal");
         float movimientoY = Input.GetAxis("Vertical");
-        float momentoDisparo = 0;
         movimiento = new Vector2(movimientoX, movimientoY);
         movimiento.Normalize();
 

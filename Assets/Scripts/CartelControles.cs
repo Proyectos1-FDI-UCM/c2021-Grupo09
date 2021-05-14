@@ -6,7 +6,7 @@ public class CartelControles : MonoBehaviour
 {
     public void ChangeSetActive()
     {
-        if (gameObject.active)
+        if (gameObject.activeSelf)
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
