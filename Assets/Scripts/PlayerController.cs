@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     bool puedeConstruir;
     private int vidaTotal = 100;
     private int vidaRestante;
-
+    public GameObject areaConstruccion;
     private UIManager theUIManager;
 
     struct PlayerInfo
@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
         asignaTorrePuntero();
+
+        //Area Construcción
+        areaConstruccion.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f);
     }
 
     private void FixedUpdate()
@@ -135,18 +138,18 @@ public class PlayerController : MonoBehaviour
             {
                 playerInfo.modo++;
                 torrePuntero.SetActive(true);
+                areaConstruccion.SetActive(true);
             }
 
             else
             {
                 playerInfo.modo--;
                 torrePuntero.SetActive(false);
+                areaConstruccion.SetActive(false);
             }
 
                 Debug.Log(playerInfo.modo);
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
