@@ -157,6 +157,7 @@ public class GameManager : MonoBehaviour
         monedasTotal = monedasIniciales;
         vidaBase = vidaMaxBase;
         vidaJug = vidaMaxJug;
+        oleadaActual = 0;
     }
 
     public void HurtPlayer(int danyo)
