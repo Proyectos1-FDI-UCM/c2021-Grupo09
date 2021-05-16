@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public Text textoMonedas;
+    public TMP_Text textoMonedas;
     public Slider barraPlayer;
     public Slider barraBase;
 
