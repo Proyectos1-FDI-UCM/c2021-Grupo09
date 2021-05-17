@@ -146,4 +146,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6357269262649181129, guid: 7d23bcda76a386e4081877596140230f,
     type: 3}
   autoShoot: 1
-  cadenciaDisp: 1
+  cadenciaDisp: 1.3
