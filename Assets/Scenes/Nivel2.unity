@@ -5887,6 +5887,12 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &527955551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1399348030657172189, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1026183816}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &653366062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6364,6 +6370,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1026183816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1147265324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9074766914684772657, guid: 94bffc9b62d4d5744b8a70748e9b25ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1828526681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1187262047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6543,6 +6561,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1948301237246289924, guid: 7e8358b8ae935504986ec33c26893a72,
+        type: 3}
+      propertyPath: jugador
+      value: 
+      objectReference: {fileID: 527955551}
     - target: {fileID: 1948301237246289925, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}
       propertyPath: m_Name
@@ -6610,6 +6633,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e8358b8ae935504986ec33c26893a72, type: 3}
+--- !u!114 &1736283988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9074766914556621802, guid: 94bffc9b62d4d5744b8a70748e9b25ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1828526681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1828526681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6762,6 +6797,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: InterfazJuego
       objectReference: {fileID: 0}
+    - target: {fileID: 9074766914311423428, guid: 94bffc9b62d4d5744b8a70748e9b25ad,
+        type: 3}
+      propertyPath: barraPlayer
+      value: 
+      objectReference: {fileID: 1147265324}
+    - target: {fileID: 9074766914311423428, guid: 94bffc9b62d4d5744b8a70748e9b25ad,
+        type: 3}
+      propertyPath: barraBase
+      value: 
+      objectReference: {fileID: 1736283988}
     - target: {fileID: 9074766914311423432, guid: 94bffc9b62d4d5744b8a70748e9b25ad,
         type: 3}
       propertyPath: m_LocalPosition.x
