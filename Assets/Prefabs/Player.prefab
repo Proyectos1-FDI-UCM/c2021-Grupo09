@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68b2e8839beefe4dac7a630b70aaa94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScale: 1.8
+  playerScale: 1.5
   distConstruc: 6
   torres:
   - {fileID: 2241420531181361487, guid: cb896217bec26e044a2c965a688c5e0e, type: 3}
@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5, type: 3}
   costes: 320000004600000096000000c8000000
   areaConstruccion: {fileID: 8954292983276288997}
-  velocityScale: 6
+  velocityScale: 4
 --- !u!50 &1399348030657172185
 Rigidbody2D:
   serializedVersion: 4
@@ -175,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399348030755280968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1399348030369820322}
