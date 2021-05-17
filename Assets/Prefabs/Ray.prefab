@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efa39f24f49bc445ae1f5c69258b3ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Da\xF1oPlayer": 1
+  "Da\xF1oPlayer": 4
   "Da\xF1oEnemigo": 4
   "cadenciaDa\xF1o": 0.2
