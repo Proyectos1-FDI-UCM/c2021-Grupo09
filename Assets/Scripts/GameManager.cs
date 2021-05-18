@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int valorMoneda = 15;
     public int oleadaActual = 0;
     public int maxOleadas;
+    public int torreSeleccionada = 0;  // 0 erizo, 1 pulpo, 2 tortuga, 3 ballena
     public int enemigosTotales; // Entero para saber cuántos enemigos quedan
 
     int vidaJug;
@@ -59,12 +60,12 @@ public class GameManager : MonoBehaviour
     {
         monedasTotal += valorMoneda;
         //Actualiza el contador de monedas de la UI
-        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
     }
     public void SubtractCoins(int costeTorre)
     {
         monedasTotal -= costeTorre;
-        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
     }
     public int GetCoins()
     {
@@ -168,14 +169,14 @@ public class GameManager : MonoBehaviour
             Destroy(jugador);
             DeadPlayer();
         }
-        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log(vidaJug + " restante.");
     }
 
     public void HealPlayer(int danyo)
     {
         vidaJug += danyo - (danyo + vidaJug - 100);
-        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
     }
 
     public void HurtBase(int danyo)
@@ -185,7 +186,13 @@ public class GameManager : MonoBehaviour
         {
             DeadPlayer();
         }
-        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase);
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log("Vida Base: " + vidaBase);
+    }
+
+    public void torresTamañoUI(int torreGrande)
+    {
+        torreSeleccionada = torreGrande;
+        theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreGrande);
     }
 }

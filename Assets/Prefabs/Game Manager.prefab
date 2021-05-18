@@ -47,6 +47,7 @@ MonoBehaviour:
   valorMoneda: 15
   oleadaActual: 0
   maxOleadas: 3
+  torreSeleccionada: 0
   enemigosTotales: 0
   vidaMaxJug: 100
   jugador: {fileID: 0}

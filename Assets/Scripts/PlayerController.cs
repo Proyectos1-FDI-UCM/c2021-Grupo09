@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private int vidaTotal = 100;
     private int vidaRestante;
     public GameObject areaConstruccion;
-    private UIManager theUIManager;
 
     struct PlayerInfo
     {
@@ -139,6 +138,7 @@ public class PlayerController : MonoBehaviour
                 playerInfo.modo++;
                 torrePuntero.SetActive(true);
                 areaConstruccion.SetActive(true);
+                instance.torresTamañoUI(indice);
             }
 
             else
@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
                 playerInfo.modo--;
                 torrePuntero.SetActive(false);
                 areaConstruccion.SetActive(false);
+                instance.torresTamañoUI(-1); // -1 es para todas al mismo tamaño
             }
 
                 Debug.Log(playerInfo.modo);
@@ -168,13 +169,9 @@ public class PlayerController : MonoBehaviour
         pos.y = Mathf.RoundToInt(pos.y);
     }
 
-    public void SetUIManager(UIManager uim)
-    {
-        theUIManager = uim;
-    }
-
     void asignaTorrePuntero() {
         torrePuntero = Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
+        instance.torresTamañoUI(indice);
         torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
         if (torrePuntero.GetComponent<ShooterErizo>()) torrePuntero.GetComponent<ShooterErizo>().enabled = false;
         else if (torrePuntero.GetComponent<ShooterPulpo>())

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Monedas : MonoBehaviour
 {
-
     private float momentoSpawn;
     public float tiempoDespawn = 10f;
     private void Start()
@@ -23,7 +22,7 @@ public class Monedas : MonoBehaviour
     // Método que destruye el GO al que va asociado tras una colisión
     private void OnTriggerEnter2D(Collider2D other)
     {
-        FindObjectOfType<AudioManager>().Play("Monedas"); // Reproducción del sonido de las monedas
+        // FindObjectOfType<AudioManager>().Play("Monedas"); // Reproducción del sonido de las monedas
         GameManager.GetInstance().AddCoins(); // Se añade + 5 monedas al contador de monedas
         Destroy(this.gameObject); // La moneda desaparece
     }

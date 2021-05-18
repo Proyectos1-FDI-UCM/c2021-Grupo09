@@ -1453,8 +1453,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoMonedas: {fileID: 9074766913639154440}
-  barraPlayer: {fileID: 0}
-  barraBase: {fileID: 0}
+  barraPlayer: {fileID: 9074766914684772657}
+  barraBase: {fileID: 9074766914556621802}
+  iconosTorres:
+  - {fileID: 9074766913983162332}
+  - {fileID: 9074766915617621961}
+  - {fileID: 9074766915124976668}
+  - {fileID: 9074766914424282932}
 --- !u!114 &9074766914311423429
 MonoBehaviour:
   m_ObjectHideFlags: 0
