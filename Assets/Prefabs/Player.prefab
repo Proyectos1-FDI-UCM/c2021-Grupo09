@@ -103,6 +103,7 @@ MonoBehaviour:
   - {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5, type: 3}
   costes: 320000004600000096000000c8000000
   areaConstruccion: {fileID: 8954292983706481539}
+  jugador: {fileID: 1399348031689608842}
   velocityScale: 4
 --- !u!50 &1399348030657172185
 Rigidbody2D:

@@ -7045,6 +7045,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1452306339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1399348031689608842, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+    type: 3}
+  m_PrefabInstance: {fileID: 278161922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962779695
 GameObject:
   m_ObjectHideFlags: 0
@@ -9582,6 +9588,11 @@ PrefabInstance:
       propertyPath: maxOleadas
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1948301237246289924, guid: 7e8358b8ae935504986ec33c26893a72,
+        type: 3}
+      propertyPath: spriteJugador
+      value: 
+      objectReference: {fileID: 1452306339}
     - target: {fileID: 1948301237246289925, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}
       propertyPath: m_Name
