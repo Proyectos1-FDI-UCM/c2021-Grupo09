@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saludTotal: 50
   moneda: {fileID: 5072286887356789971, guid: 27073b49605a57146a753d0be84b42cb, type: 3}
+  spriteEnemigo: {fileID: 8347111807141636872}
 --- !u!114 &2898056212178795426
 MonoBehaviour:
   m_ObjectHideFlags: 0

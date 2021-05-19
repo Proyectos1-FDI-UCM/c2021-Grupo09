@@ -9,6 +9,7 @@ public class RecibaDanyo : MonoBehaviour
     public int saludTotal = 10; // Salud máxima y con la que empieza el enemigo
     int monedasSalud; // Monedas que soltará dependiendo de la salud del enemigo
     public GameObject moneda; // Prefab de moneda que aparecerá al morir el enemigo
+    public GameObject spriteEnemigo;
 
     private void Start()
     {
@@ -45,8 +46,15 @@ public class RecibaDanyo : MonoBehaviour
             saludRestante -= other.gameObject.GetComponent<Bala>().damageDealt;
             // Borrar al hacer que pueda morir
             Debug.Log(saludRestante + " HP restante");
+            spriteEnemigo.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
+            Invoke(nameof(BackToNormal), 0.2f);
         }
     }
+    public void BackToNormal()
+    {
+        spriteEnemigo.GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
+    }
+
     public void CurarEnemigo(int cura)
     {
         if (saludRestante < saludTotal)
