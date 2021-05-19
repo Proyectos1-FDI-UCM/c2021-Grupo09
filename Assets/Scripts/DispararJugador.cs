@@ -14,7 +14,7 @@ public class DispararJugador : MonoBehaviour
     {
         if (tiempoAux <= 0)
         {
-            FindObjectOfType<AudioManager>().Play("Disparo"); // Reproducción del sonido del disparo
+            AudioManager.GetInstance().Play("Disparo"); // Reproducción del sonido del disparo
             // Crea bala donde esté el origen, mirando hacia donde mira este GameObject (hacia el ratón)
             Instantiate(gameObjectBala, transform.position, transform.rotation);
 

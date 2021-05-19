@@ -169,6 +169,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(jugador);
             DeadPlayer();
+            AudioManager.GetInstance().Play("Muerte"); // Reproducción del sonido de muerte
         }
         theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log(vidaJug + " restante.");
