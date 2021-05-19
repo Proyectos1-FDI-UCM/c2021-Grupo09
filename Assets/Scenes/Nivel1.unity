@@ -9718,6 +9718,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[1].nombre
+      value: Disparo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7959180dbd82bee46824f8a8e30ac1c9, type: 3}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[1].volumen
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[2].nombre
+      value: Muerte
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c973e8f64871224eac30f970cae569d, type: 3}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sonidos.Array.data[2].volumen
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7653117406502561319, guid: 9d6a9c845afd6764aabb7c34567531ae,
         type: 3}
       propertyPath: m_Name
