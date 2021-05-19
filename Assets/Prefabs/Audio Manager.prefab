@@ -48,11 +48,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8a2b6ddfc5fdc35428a368bc946474bb, type: 3}
     volumen: 0.5
     fuente: {fileID: 0}
-  - nombre: 
-    clip: {fileID: 0}
-    volumen: 0
+  - nombre: Disparo
+    clip: {fileID: 8300000, guid: 7959180dbd82bee46824f8a8e30ac1c9, type: 3}
+    volumen: 0.5
     fuente: {fileID: 0}
-  - nombre: 
-    clip: {fileID: 0}
-    volumen: 0
+  - nombre: Muerte
+    clip: {fileID: 8300000, guid: 9c973e8f64871224eac30f970cae569d, type: 3}
+    volumen: 0.5
     fuente: {fileID: 0}

@@ -4014,6 +4014,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399348030657172186, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: spriteJugador
+      value: 
+      objectReference: {fileID: 1452306339}
     - target: {fileID: 1399348030657172187, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6170,6 +6175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saludTotal: 10
   moneda: {fileID: 5072286887356789971, guid: 27073b49605a57146a753d0be84b42cb, type: 3}
+  spriteEnemigo: {fileID: 0}
 --- !u!50 &994567602
 Rigidbody2D:
   serializedVersion: 4
@@ -9717,36 +9723,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[1].nombre
-      value: Disparo
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7959180dbd82bee46824f8a8e30ac1c9, type: 3}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[1].volumen
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[2].nombre
-      value: Muerte
-      objectReference: {fileID: 0}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9c973e8f64871224eac30f970cae569d, type: 3}
-    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
-        type: 3}
-      propertyPath: sonidos.Array.data[2].volumen
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7653117406502561319, guid: 9d6a9c845afd6764aabb7c34567531ae,
         type: 3}
