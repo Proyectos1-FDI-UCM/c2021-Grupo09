@@ -12,10 +12,7 @@ public class PlayerController : MonoBehaviour
     GameObject torrePuntero; // Semi-transparente, indica dónde se va a construir
     Vector3 pos;
     bool puedeConstruir;
-    private int vidaTotal = 100;
-    private int vidaRestante;
     public GameObject areaConstruccion;
-    public GameObject spriteJugador;
 
     struct PlayerInfo
     {
@@ -38,9 +35,9 @@ public class PlayerController : MonoBehaviour
         //Acceso al componente rigidBody2D
         rb = GetComponent<Rigidbody2D>();
         playerInfo.modo = ModoJug.Disparo;
-        vidaRestante = vidaTotal;
         //Acceso al GameManager
         instance = GameManager.GetInstance();
+        instance.SetPlayer(gameObject);
 
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
@@ -159,14 +156,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.GetComponent<Bala>() != null)
         {
             instance.HurtPlayer(other.gameObject.GetComponent<Bala>().damageDealt);
-            spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
-            Invoke(nameof(BackToNormal), 0.2f);
         }
-    }
-
-    public void BackToNormal()
-    {
-        spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
     }
 
     void posEnCursor()
