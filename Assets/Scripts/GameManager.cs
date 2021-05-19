@@ -164,7 +164,6 @@ public class GameManager : MonoBehaviour
 
     public void HurtPlayer(int danyo)
     {
-        //spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
         vidaJug -= danyo;
         if (vidaJug <= 0)
         {
@@ -173,12 +172,7 @@ public class GameManager : MonoBehaviour
         }
         theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log(vidaJug + " restante.");
-        //Invoke(nameof(BackToNormal), 0.2f);
     }
-    //public void BackToNormal()
-    //{
-    //    spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
-    //}
 
     public void HealPlayer(int danyo)
     {

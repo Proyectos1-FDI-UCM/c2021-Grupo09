@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private int vidaTotal = 100;
     private int vidaRestante;
     public GameObject areaConstruccion;
+    public GameObject spriteJugador;
 
     struct PlayerInfo
     {
@@ -157,16 +158,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Bala>() != null)
         {
-            this.GetComponentInChildren<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
             instance.HurtPlayer(other.gameObject.GetComponent<Bala>().damageDealt);
+            spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
             Invoke(nameof(BackToNormal), 0.2f);
         }
     }
 
     public void BackToNormal()
     {
-        this.GetComponentInChildren<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
-    } 
+        spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
+    }
 
     void posEnCursor()
     {
