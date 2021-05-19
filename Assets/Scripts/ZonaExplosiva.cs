@@ -28,7 +28,7 @@ public class ZonaExplosiva : MonoBehaviour
         {
             GameManager.GetInstance().HurtPlayer(DañoPlayer);
         }
-        else
+        else if(other.gameObject.GetComponent<RecibaDanyo>() != null)
         {
             other.gameObject.GetComponent<RecibaDanyo>().DanarEnemigo(DañoEnemigo);
         }
