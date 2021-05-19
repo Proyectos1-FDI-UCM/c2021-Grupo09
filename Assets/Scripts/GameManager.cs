@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     int vidaJug;
     public int vidaMaxJug = 100;
     public GameObject jugador;
-    public GameObject spriteJugador;
+    GameObject spriteJugador;
 
     int vidaBase;
     public int vidaMaxBase = 100;
@@ -55,6 +55,12 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance()
     {
         return instance;
+    }
+
+    public void SetPlayer(GameObject player)
+    {
+        jugador = player;
+        spriteJugador = jugador.transform.GetChild(0).gameObject;
     }
     
     public void AddCoins()
@@ -165,6 +171,8 @@ public class GameManager : MonoBehaviour
     public void HurtPlayer(int danyo)
     {
         vidaJug -= danyo;
+        spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
+        Invoke(nameof(BackToNormal), 0.2f);
         if (vidaJug <= 0)
         {
             Destroy(jugador);
@@ -173,6 +181,11 @@ public class GameManager : MonoBehaviour
         }
         theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log(vidaJug + " restante.");
+    }
+
+    private void BackToNormal()
+    {
+        spriteJugador.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 1);
     }
 
     public void HealPlayer(int danyo)
