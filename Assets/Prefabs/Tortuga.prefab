@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2689605170213261090}
   - component: {fileID: 9134221487840813064}
   - component: {fileID: 4626395566599415130}
+  - component: {fileID: 8031416054108683473}
   m_Layer: 8
   m_Name: Tortuga
   m_TagString: Untagged
@@ -131,6 +132,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8031416054108683473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241420531181361487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ba54560982d6d43b918a04417222ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 10
 --- !u!1 &4775879360749445044
 GameObject:
   m_ObjectHideFlags: 0

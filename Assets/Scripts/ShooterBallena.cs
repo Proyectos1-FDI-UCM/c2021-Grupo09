@@ -38,4 +38,8 @@ public class ShooterBallena : MonoBehaviour
     {
         isShooting = false;
     }
+    public bool IsShooting()
+    {
+        return isShooting;
+    }
 }
