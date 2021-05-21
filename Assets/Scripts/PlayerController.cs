@@ -91,12 +91,14 @@ public class PlayerController : MonoBehaviour
                     indice = (indice + 1) % 4;
                     Destroy(torrePuntero);
                     asignaTorrePuntero();
+                    instance.torresTamañoUI(indice);
                 }
                 else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
                 {
                     indice = (indice + 3) % 4;
                     Destroy(torrePuntero);
                     asignaTorrePuntero();
+                    instance.torresTamañoUI(indice);
                 }
                 //Actualiza la torrePuntero en la posición del cursor
                 posEnCursor();
@@ -169,7 +171,6 @@ public class PlayerController : MonoBehaviour
 
     void asignaTorrePuntero() {
         torrePuntero = Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
-        instance.torresTamañoUI(indice);
         torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f); // Transparencia
         torrePuntero.GetComponent<SelfDestruct>().enabled = false;
         if (torrePuntero.GetComponentInChildren<Canvas>())

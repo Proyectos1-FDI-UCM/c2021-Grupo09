@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int valorMoneda = 15;
     public int oleadaActual = 0;
     public int maxOleadas;
-    public int torreSeleccionada = 0;  // 0 erizo, 1 pulpo, 2 tortuga, 3 ballena
+    public int torreSeleccionada = -1;  // 0 erizo, 1 pulpo, 2 tortuga, 3 ballena
     public int enemigosTotales; // Entero para saber cuántos enemigos quedan
 
     int vidaJug;
