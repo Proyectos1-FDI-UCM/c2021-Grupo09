@@ -60,4 +60,8 @@ public class ShooterTortuga : MonoBehaviour
             lastShotTime = Time.time;
         }
     }
+    private void OnDestroy()
+    {
+        if(myRay != null) Destroy(myRay.gameObject);
+    }
 }
