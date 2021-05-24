@@ -1473,6 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 316e78a1d80421e47b8c0e16fad6a7b6, type: 2}
+  menuPausa: {fileID: 9074766913821354061}
 --- !u!1 &9074766914315335701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,9 +2239,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9074766913821354061}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 9074766914311423429}
+        m_MethodName: Continuar
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2283,8 +2284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.000030517578}
-  m_SizeDelta: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: -16.899994, y: 2.300003}
+  m_SizeDelta: {x: 272.01404, y: 133.65726}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9074766914603281942
 CanvasRenderer:
@@ -2307,7 +2308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.44931206, b: 0.6886792, a: 1}
+  m_Color: {r: 0, g: 0.20868544, b: 0.3679245, a: 0.34117648}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4937,8 +4938,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8204960406205710350}
-        m_MethodName: ChangeSetActive
+      - m_Target: {fileID: 9074766914311423429}
+        m_MethodName: Pausar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
