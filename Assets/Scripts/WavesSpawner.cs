@@ -11,7 +11,7 @@ public class WavesSpawner : MonoBehaviour
     public struct Oleada // Constructor de Oleadas
     {
         public int maxEnemigos; // Número máximo de enemigos por oleada
-        public GameObject enemigo; // GO a instanciar
+        public GameObject enem1, enem2; // GO a instanciar
     }
 
     public float cooldown = 5f; // Cooldown entre cada instancia de enemigos
@@ -92,9 +92,13 @@ public class WavesSpawner : MonoBehaviour
             estado = SpawnState.active; // Se inicializa el estado a activo
 
             // Se inicializan tantos enemigos como se declaren en el editor
-            for (int i = 0; i < oleadas[GameManager.GetInstance().oleadaActual].maxEnemigos; i++)
+            for (int i = 0; i < oleadas[GameManager.GetInstance().oleadaActual].maxEnemigos/2; i++)
             {
-                Instantiate(oleadas[GameManager.GetInstance().oleadaActual].enemigo, transform.position, transform.rotation);
+                Instantiate(oleadas[GameManager.GetInstance().oleadaActual].enem1, transform.position, transform.rotation);
+                GameManager.GetInstance().enemigosTotales++;
+                Debug.Log("Ahora mismo hay " + GameManager.GetInstance().enemigosTotales + " enemigos en el nivel");
+                yield return new WaitForSeconds(2f); // Tiempo de espera de 2s entre instancias
+                Instantiate(oleadas[GameManager.GetInstance().oleadaActual].enem2, transform.position, transform.rotation);
                 GameManager.GetInstance().enemigosTotales++;
                 Debug.Log("Ahora mismo hay " + GameManager.GetInstance().enemigosTotales + " enemigos en el nivel");
                 yield return new WaitForSeconds(2f); // Tiempo de espera de 2s entre instancias
