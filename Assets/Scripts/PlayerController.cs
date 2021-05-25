@@ -81,11 +81,15 @@ public class PlayerController : MonoBehaviour
                 // if(Input.GetButtonDown("Fire1"))
                 if (Input.GetButton("Fire1"))
                 {
-                    Cursor.SetCursor(cursorReticulaPulsada, new Vector2(0, 0), CursorMode.Auto);
+                    if (Time.timeScale == 1)
+                        Cursor.SetCursor(cursorReticulaPulsada, new Vector2(0, 0), CursorMode.Auto);
                     GetComponentInChildren<DispararJugador>().Shoot();
                 }
                 else
-                    Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
+                {
+                    if (Time.timeScale == 1)
+                        Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
+                }
             }
             //Construcción
             else
@@ -161,6 +165,11 @@ public class PlayerController : MonoBehaviour
             }
 
                 Debug.Log(playerInfo.modo);
+        }
+
+        if(Time.timeScale < 1)
+        {
+            Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
         }
     }
 
