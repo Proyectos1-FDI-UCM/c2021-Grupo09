@@ -12,11 +12,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        AudioManager.GetInstance().PlaySFX("Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
     {
+        AudioManager.GetInstance().PlaySFX("Click");
         Debug.Log("QUIT");
         Application.Quit();
     }

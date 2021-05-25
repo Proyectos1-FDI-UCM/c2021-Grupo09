@@ -76,4 +76,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 099d112431a521b44a4fb38fd583b31a, type: 3}
     volumen: 1
     fuente: {fileID: 0}
+  - nombre: Click
+    clip: {fileID: 8300000, guid: 2c6869ec538bb104085adbd828162fdd, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
   music: []
