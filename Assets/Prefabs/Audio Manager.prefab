@@ -64,4 +64,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ccd30d41a923b6b438b7826b1864d179, type: 3}
     volumen: 1
     fuente: {fileID: 0}
+  - nombre: "Da\xF1oBot"
+    clip: {fileID: 8300000, guid: c7c4ee953901b244ebfd8ff1fa7ba36f, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: "Da\xF1oEnemigo"
+    clip: {fileID: 8300000, guid: fc17209e08f55f04090c90edb97f5828, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: ConstruirTorre
+    clip: {fileID: 8300000, guid: 099d112431a521b44a4fb38fd583b31a, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
   music: []

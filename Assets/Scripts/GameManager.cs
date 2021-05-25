@@ -179,6 +179,10 @@ public class GameManager : MonoBehaviour
             DeadPlayer();
             AudioManager.GetInstance().PlaySFX("Muerte"); // Reproducción del sonido de muerte
         }
+        else
+        {
+            AudioManager.GetInstance().PlaySFX("DañoBot"); // Reproducción del sonido de daño
+        }
         theUIManager.UpdateUI(monedasTotal, vidaJug, vidaBase, torreSeleccionada);
         Debug.Log(vidaJug + " restante.");
     }

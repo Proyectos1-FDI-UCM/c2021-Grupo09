@@ -46,6 +46,7 @@ public class RecibaDanyo : MonoBehaviour
             saludRestante -= other.gameObject.GetComponent<Bala>().damageDealt;
             // Borrar al hacer que pueda morir
             Debug.Log(saludRestante + " HP restante");
+            AudioManager.GetInstance().PlaySFX("DañoEnemigo"); // Reproducción del sonido de daño al enemigo.
             spriteEnemigo.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f);
             Invoke(nameof(BackToNormal), 0.2f);
         }

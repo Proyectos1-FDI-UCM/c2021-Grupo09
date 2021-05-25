@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetButtonDown("Fire1") && puedeConstruir)
                 {
+                    AudioManager.GetInstance().PlaySFX("ConstruirTorre"); // Reproducción del sonido de construcción torre
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
                     instance.SubtractCoins(costes[indice]);
                 }
