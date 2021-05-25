@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     Vector3 pos;
     bool puedeConstruir;
     public GameObject areaConstruccion;
+    public Texture2D cursorReticula;
+    public Texture2D cursorReticulaPulsada;
 
     struct PlayerInfo
     {
@@ -79,9 +81,11 @@ public class PlayerController : MonoBehaviour
                 // if(Input.GetButtonDown("Fire1"))
                 if (Input.GetButton("Fire1"))
                 {
+                    Cursor.SetCursor(cursorReticulaPulsada, new Vector2(0, 0), CursorMode.Auto);
                     GetComponentInChildren<DispararJugador>().Shoot();
                 }
-                
+                else
+                    Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
             }
             //Construcción
             else
@@ -129,6 +133,10 @@ public class PlayerController : MonoBehaviour
             puedeConstruir = false;
             torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
         }
+        else
+        {
+            Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
+        }
 
         //Cambio de modo
         if (Input.GetButtonDown("Fire2"))
@@ -139,6 +147,7 @@ public class PlayerController : MonoBehaviour
                 torrePuntero.SetActive(true);
                 areaConstruccion.SetActive(true);
                 instance.torresTamañoUI(indice);
+                Cursor.visible = false;
             }
 
             else
@@ -147,6 +156,8 @@ public class PlayerController : MonoBehaviour
                 torrePuntero.SetActive(false);
                 areaConstruccion.SetActive(false);
                 instance.torresTamañoUI(-1); // -1 es para todas al mismo tamaño
+                Cursor.visible = true;
+                Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
             }
 
                 Debug.Log(playerInfo.modo);

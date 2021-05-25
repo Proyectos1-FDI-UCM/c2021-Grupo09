@@ -102,6 +102,9 @@ MonoBehaviour:
   - {fileID: 2241420531181361487, guid: 351c060e4953e1848b2dc52814e6d4b5, type: 3}
   costes: 320000004600000096000000c8000000
   areaConstruccion: {fileID: 8954292983706481539}
+  cursorReticula: {fileID: 2800000, guid: 85c3e665753554d44ae4f8ba202ed55c, type: 3}
+  cursorReticulaPulsada: {fileID: 2800000, guid: 443763f3014bd674b9f58672a028698b,
+    type: 3}
   velocityScale: 4
 --- !u!50 &1399348030657172185
 Rigidbody2D:
