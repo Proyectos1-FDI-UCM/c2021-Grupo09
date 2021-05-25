@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject areaConstruccion;
     public Texture2D cursorReticula;
     public Texture2D cursorReticulaPulsada;
+    public Texture2D noMonedas;
 
     struct PlayerInfo
     {
@@ -112,6 +113,11 @@ public class PlayerController : MonoBehaviour
                 posEnCursor();
                 torrePuntero.transform.position = pos;
 
+                if (instance.GetCoins() < costes[indice])
+                {
+                    Cursor.SetCursor(noMonedas, new Vector2(0, 0), CursorMode.Auto);
+                }
+
                 if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
                     && Vector3.Distance(pos, this.gameObject.transform.position) < distConstruc
                     && instance.GetCoins() >= costes[indice])
@@ -123,6 +129,7 @@ public class PlayerController : MonoBehaviour
                 {
                     puedeConstruir = false;
                     torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
+                    
                 }
 
                 if (Input.GetButtonDown("Fire1") && puedeConstruir)
@@ -131,12 +138,18 @@ public class PlayerController : MonoBehaviour
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
                     instance.SubtractCoins(costes[indice]);
                 }
+
+                if (Input.GetButtonDown("Fire1") && !puedeConstruir || Input.GetButtonDown("Fire1") && instance.GetCoins() < costes[indice])
+                {
+                    AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
+                }
             }
         }
         else if (puedeConstruir) //Que se ponga roja la torre si el cursor está sobre la interfaz
         {
             puedeConstruir = false;
             torrePuntero.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.5f); // Rojo
+            AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
         }
         else
         {
@@ -153,6 +166,7 @@ public class PlayerController : MonoBehaviour
                 areaConstruccion.SetActive(true);
                 instance.torresTamañoUI(indice);
                 Cursor.visible = false;
+                AudioManager.GetInstance().PlaySFX("EntreModos");
             }
 
             else
@@ -163,6 +177,7 @@ public class PlayerController : MonoBehaviour
                 instance.torresTamañoUI(-1); // -1 es para todas al mismo tamaño
                 Cursor.visible = true;
                 Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
+                AudioManager.GetInstance().PlaySFX("EntreModos");
             }
 
                 Debug.Log(playerInfo.modo);
