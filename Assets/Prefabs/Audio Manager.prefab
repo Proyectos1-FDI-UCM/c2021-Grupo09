@@ -43,20 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9daa3e8b02280d749a3a2678a23e0199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidos:
+  SFXGroup: {fileID: -337595515824680074, guid: 316e78a1d80421e47b8c0e16fad6a7b6,
+    type: 2}
+  MusicGroup: {fileID: 8217338242489810619, guid: 316e78a1d80421e47b8c0e16fad6a7b6,
+    type: 2}
+  sfx:
   - nombre: Monedas
     clip: {fileID: 8300000, guid: 8a2b6ddfc5fdc35428a368bc946474bb, type: 3}
-    volumen: 0.5
+    volumen: 1
     fuente: {fileID: 0}
   - nombre: Disparo
     clip: {fileID: 8300000, guid: 7959180dbd82bee46824f8a8e30ac1c9, type: 3}
-    volumen: 0.5
+    volumen: 1
     fuente: {fileID: 0}
   - nombre: Muerte
     clip: {fileID: 8300000, guid: 9c973e8f64871224eac30f970cae569d, type: 3}
-    volumen: 0.5
+    volumen: 1
     fuente: {fileID: 0}
   - nombre: "Da\xF1oBase"
     clip: {fileID: 8300000, guid: ccd30d41a923b6b438b7826b1864d179, type: 3}
-    volumen: 0.5
+    volumen: 1
     fuente: {fileID: 0}
+  music: []

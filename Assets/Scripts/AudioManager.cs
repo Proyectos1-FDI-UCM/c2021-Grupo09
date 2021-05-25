@@ -6,7 +6,13 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
 
-    public Sound[] sonidos;
+    public AudioMixerGroup SFXGroup;
+
+    public AudioMixerGroup MusicGroup;
+
+    public Sound[] sfx;
+
+    public Sound[] music;
 
     void Awake()
     {
@@ -24,12 +30,26 @@ public class AudioManager : MonoBehaviour
         }
 
 
-        foreach (Sound s in sonidos)
+        foreach (Sound s in sfx)
         {
             s.fuente = gameObject.AddComponent<AudioSource>();
             s.fuente.clip = s.clip;
+            s.fuente.outputAudioMixerGroup = SFXGroup;
+
+            Debug.Log(s.fuente.outputAudioMixerGroup);
 
             s.fuente.volume = s.volumen;
+        }
+
+        foreach (Sound m in music)
+        {
+            m.fuente = gameObject.AddComponent<AudioSource>();
+            m.fuente.clip = m.clip;
+            m.fuente.outputAudioMixerGroup = MusicGroup;
+
+            Debug.Log(m.fuente.outputAudioMixerGroup);
+
+            m.fuente.volume = m.volumen;
         }
     }
 
@@ -38,10 +58,16 @@ public class AudioManager : MonoBehaviour
         return instance;
     }
 
-    public void Play (string name)
+    public void PlaySFX(string name)
     {
-        Sound s = Array.Find(sonidos, sonidos => sonidos.nombre == name);
+        Sound s = Array.Find(sfx, sfx => sfx.nombre == name);
         s.fuente.Play();
+    }
+
+    public void PlayMUSIC(string name)
+    {
+        Sound m = Array.Find(music, music => music.nombre == name);
+        m.fuente.Play();
     }
 
 }

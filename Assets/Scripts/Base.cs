@@ -21,7 +21,7 @@ public class Base : MonoBehaviour
         {
             instance.HurtBase(dañoRecibido);
             instance.enemigosTotales--;
-            AudioManager.GetInstance().Play("DañoBase");
+            AudioManager.GetInstance().PlaySFX("DañoBase");
             Destroy(collision.gameObject);
         }
     }
