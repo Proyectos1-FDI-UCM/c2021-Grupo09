@@ -80,4 +80,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2c6869ec538bb104085adbd828162fdd, type: 3}
     volumen: 1
     fuente: {fileID: 0}
+  - nombre: CambioDeModo
+    clip: {fileID: 8300000, guid: c6a61dec26c8906498400dcd5487c3b7, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: NoPuedeConstruir
+    clip: {fileID: 8300000, guid: 43530165881f5094e8c9bb757b07ee07, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
   music: []
