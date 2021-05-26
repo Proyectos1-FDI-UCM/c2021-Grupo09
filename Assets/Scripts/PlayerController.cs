@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             if (playerInfo.modo == ModoJug.Disparo)
             {
-                playerInfo.modo++;
+                playerInfo.modo = ModoJug.Construccion;
                 torrePuntero.SetActive(true);
                 areaConstruccion.SetActive(true);
                 instance.torresTamañoUI(indice);
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
             else
             {
-                playerInfo.modo--;
+                playerInfo.modo = ModoJug.Disparo;
                 torrePuntero.SetActive(false);
                 areaConstruccion.SetActive(false);
                 instance.torresTamañoUI(-1); // -1 es para todas al mismo tamaño
