@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ba54560982d6d43b918a04417222ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 15
   barraTorre: {fileID: 1962508849413877986}
 --- !u!1001 &2018022867955075894
 PrefabInstance:

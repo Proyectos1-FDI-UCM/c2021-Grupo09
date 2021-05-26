@@ -10716,16 +10716,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 2
   oleadas:
-  - maxEnemigos: 10
+  - maxEnemigos: 8
     enem1: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b, type: 3}
     enem2: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b, type: 3}
-  - maxEnemigos: 7
+  - maxEnemigos: 10
     enem1: {fileID: 9102612209686588781, guid: cd695a81b01291f4f92a77be8c38d46b, type: 3}
     enem2: {fileID: 9102612209686588781, guid: ba78e680e9878b5418dc3a855e29d1c3, type: 3}
-  - maxEnemigos: 6
+  - maxEnemigos: 14
     enem1: {fileID: 9102612209686588781, guid: ba78e680e9878b5418dc3a855e29d1c3, type: 3}
     enem2: {fileID: 473657863078933303, guid: 17f774ce00cd0fe4391d32374075704d, type: 3}
-  - maxEnemigos: 8
+  - maxEnemigos: 16
     enem1: {fileID: 473657863078933303, guid: 17f774ce00cd0fe4391d32374075704d, type: 3}
     enem2: {fileID: 473657863078933303, guid: 5491a6f5d8f1ad24ab243ddcb52957e5, type: 3}
 --- !u!4 &2048163801
