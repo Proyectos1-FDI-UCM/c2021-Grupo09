@@ -5,21 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     private void Start()
     {
+        AudioManager.GetInstance().PlayMUSIC("MainMenuMusic");
         Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
     }
 
     public void PlayGame()
     {
-        AudioManager.GetInstance().PlaySFX("Click");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
     {
-        AudioManager.GetInstance().PlaySFX("Click");
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+    public void ClickEffect()
+    {
+        AudioManager.GetInstance().PlaySFX("Click");
     }
 }

@@ -11,4 +11,9 @@ public class CartelControles : MonoBehaviour
         else
             gameObject.SetActive(true);
     }
+
+    public void ClickEffect()
+    {
+        AudioManager.GetInstance().PlaySFX("Click");
+    }
 }
