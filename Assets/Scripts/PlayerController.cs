@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Que no se pueda construir ni disparar si el cursor está sobre la interfaz
-        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11) 
+        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > -11 && Time.timeScale > 0) 
         {
             //Disparo
             if (playerInfo.modo == ModoJug.Disparo)
