@@ -131,6 +131,11 @@ public class PlayerController : MonoBehaviour
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
                     instance.SubtractCoins(costes[indice]);
                 }
+
+                if (Input.GetButtonDown("Fire1") && !puedeConstruir || Input.GetButtonDown("Fire1") && instance.GetCoins() >= costes[indice])
+                {
+                    AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
+                }
             }
         }
         else if (puedeConstruir) //Que se ponga roja la torre si el cursor está sobre la interfaz
@@ -153,6 +158,7 @@ public class PlayerController : MonoBehaviour
                 areaConstruccion.SetActive(true);
                 instance.torresTamañoUI(indice);
                 Cursor.visible = false;
+                AudioManager.GetInstance().PlaySFX("CambioDeModo");
             }
 
             else
@@ -163,6 +169,7 @@ public class PlayerController : MonoBehaviour
                 instance.torresTamañoUI(-1); // -1 es para todas al mismo tamaño
                 Cursor.visible = true;
                 Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
+                AudioManager.GetInstance().PlaySFX("CambioDeModo");
             }
 
                 Debug.Log(playerInfo.modo);
