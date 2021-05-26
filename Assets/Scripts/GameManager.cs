@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         vidaJug = vidaMaxJug;
         vidaBase = vidaMaxBase;
         monedasTotal = monedasIniciales;
+        torreSeleccionada = -1;
     }
 
     //Acceso a la instancia del Game Manager
