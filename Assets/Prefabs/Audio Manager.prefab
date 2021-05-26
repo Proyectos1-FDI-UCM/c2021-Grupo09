@@ -91,5 +91,5 @@ MonoBehaviour:
   music:
   - nombre: MainMenuMusic
     clip: {fileID: 8300000, guid: 66c9a3d0fa264114282337cf47ff6b9d, type: 3}
-    volumen: 1
+    volumen: 0.01
     fuente: {fileID: 0}
