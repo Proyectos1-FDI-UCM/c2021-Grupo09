@@ -6524,6 +6524,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[8].nombre
+      value: CambioDeModo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c6a61dec26c8906498400dcd5487c3b7, type: 3}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[8].volumen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[9].nombre
+      value: NoPuedeConstruir
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 43530165881f5094e8c9bb757b07ee07, type: 3}
+    - target: {fileID: 7653117406502561318, guid: 9d6a9c845afd6764aabb7c34567531ae,
+        type: 3}
+      propertyPath: sfx.Array.data[9].volumen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7653117406502561319, guid: 9d6a9c845afd6764aabb7c34567531ae,
         type: 3}
       propertyPath: m_Name
