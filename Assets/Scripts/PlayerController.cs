@@ -44,9 +44,6 @@ public class PlayerController : MonoBehaviour
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
         asignaTorrePuntero();
-
-        //Area Construcción
-        areaConstruccion.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 0.5f);
     }
 
     private void FixedUpdate()
