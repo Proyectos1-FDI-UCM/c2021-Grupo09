@@ -1761,12 +1761,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709524626}
   m_CullTransparentMesh: 0
---- !u!1 &849085953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1399348031689608842, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-    type: 3}
-  m_PrefabInstance: {fileID: 2037850070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &871386506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,12 +2384,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1338862159 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1399348030657172189, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
-    type: 3}
-  m_PrefabInstance: {fileID: 2037850070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420000009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,12 +3205,12 @@ PrefabInstance:
         type: 3}
       propertyPath: jugador
       value: 
-      objectReference: {fileID: 1338862159}
+      objectReference: {fileID: 0}
     - target: {fileID: 1948301237246289924, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}
       propertyPath: spriteJugador
       value: 
-      objectReference: {fileID: 849085953}
+      objectReference: {fileID: 0}
     - target: {fileID: 1948301237246289925, guid: 7e8358b8ae935504986ec33c26893a72,
         type: 3}
       propertyPath: m_Name
@@ -3439,6 +3427,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729376125412660401, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729376125412660406, guid: 4e78b7ecab9f49a4e88b58073f6b1aba,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e78b7ecab9f49a4e88b58073f6b1aba, type: 3}
