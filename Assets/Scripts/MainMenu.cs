@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.GetInstance().PlayMUSIC("MainMenuMusic");
+        //AudioManager.GetInstance().PlayMUSIC("MainMenuMusic");
         Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
         instance = GameManager.GetInstance();
     }
