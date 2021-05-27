@@ -131,11 +131,7 @@ public class PlayerController : MonoBehaviour
                     Instantiate(torres[indice], pos, new Quaternion(0, 0, 0, 1));
                     instance.SubtractCoins(costes[indice]);
                 }
-
-                if (Input.GetButtonDown("Fire1") && !puedeConstruir || Input.GetButtonDown("Fire1") && instance.GetCoins() >= costes[indice])
-                {
-                    AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
-                }
+                else if (Input.GetButtonDown("Fire1") && !puedeConstruir) AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
             }
         }
         else if (puedeConstruir) //Que se ponga roja la torre si el cursor está sobre la interfaz
