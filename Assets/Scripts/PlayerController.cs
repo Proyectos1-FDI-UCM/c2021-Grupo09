@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject areaConstruccion;
     public Texture2D cursorReticula;
     public Texture2D cursorReticulaPulsada;
+    public GameObject faltanMonedas;
 
     struct PlayerInfo
     {
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         //Creación de la torre que estará en el puntero en el modo construcción
         posEnCursor();
         asignaTorrePuntero();
+        faltanMonedas.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
                 //Actualiza la torrePuntero en la posición del cursor
                 posEnCursor();
                 torrePuntero.transform.position = pos;
+                faltanMonedas.transform.position = pos + new Vector3(1.5f, 1.5f, 0);
 
                 if (!torrePuntero.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Camino", "Muro", "Torres"))
                     && Vector3.Distance(pos, this.gameObject.transform.position) < distConstruc
@@ -129,6 +132,16 @@ public class PlayerController : MonoBehaviour
                     instance.SubtractCoins(costes[indice]);
                 }
                 else if (Input.GetButtonDown("Fire1") && !puedeConstruir) AudioManager.GetInstance().PlaySFX("NoPuedeConstruir");
+
+                if (instance.GetCoins() < costes[indice])
+                {
+                    faltanMonedas.SetActive(true);
+                }
+
+                if (instance.GetCoins() >= costes[indice])
+                {
+                    faltanMonedas.SetActive(false);
+                }
             }
         }
         else if (puedeConstruir) //Que se ponga roja la torre si el cursor está sobre la interfaz
@@ -163,6 +176,7 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.SetCursor(cursorReticula, new Vector2(0, 0), CursorMode.Auto);
                 AudioManager.GetInstance().PlaySFX("CambioDeModo");
+                faltanMonedas.SetActive(false);
             }
 
                 Debug.Log(playerInfo.modo);
