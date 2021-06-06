@@ -34,6 +34,7 @@ public class BalaBallena : MonoBehaviour
         if (hasRotated && transform.position.y < sb.GetEnemyY())
         {
             Instantiate(zonaExplosiva, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
+            AudioManager.GetInstance().PlaySFX("ExplosionBallena"); // Reproducción del sonido de explosion de ballena
             sb.ChangeIsShooting();
             Destroy(gameObject);
         }

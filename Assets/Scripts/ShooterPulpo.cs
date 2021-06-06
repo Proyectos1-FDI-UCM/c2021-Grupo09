@@ -25,6 +25,7 @@ public class ShooterPulpo : MonoBehaviour
             // Instanciamos un clon del prefab de la bala 
             // en la escena en la posición del cañón del pulpo (poseedor del componente ShooterPulpo)
             Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, 45 * i));
+            AudioManager.GetInstance().PlaySFX("DisparoErizoPulpo"); // Reproducción del sonido de disparo de pulpo y erizo
         }
     }
 

@@ -23,11 +23,15 @@ public class SelfDestruct : MonoBehaviour
         // Si la torre es ballena
         if (sb)
         {
-            if (!sb.IsShooting() && Time.time > spawnTime + lifetime) Destroy(gameObject);
+            if (!sb.IsShooting() && Time.time > spawnTime + lifetime) { 
+                Destroy(gameObject);
+                AudioManager.GetInstance().PlaySFX("MuerteTorre"); // Reproducción del sonido de muerte de torre
+            }
         }
         else if (Time.time > spawnTime + lifetime)
         {
             Destroy(gameObject);
+            AudioManager.GetInstance().PlaySFX("MuerteTorre"); // Reproducción del sonido de muerte de torre
         }
         
     }

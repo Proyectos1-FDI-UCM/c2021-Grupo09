@@ -56,6 +56,7 @@ public class ShooterTortuga : MonoBehaviour
             myRay.GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 0.2f); // Semi-transparente para el apuntado
             myRay.transform.localScale = new Vector3(myRay.transform.localScale.x, 0.5f*myRay.transform.localScale.y, 1); // Más estrecho en el apuntado
             followEnemy = true; // Tiene que perseguir al objetivo
+            AudioManager.GetInstance().PlaySFX("CargaDisparoTortuga"); // Reproducción del sonido de disparo de tortuga
             estado = estadoTortuga.apunta;
             lastShotTime = Time.time;
         }

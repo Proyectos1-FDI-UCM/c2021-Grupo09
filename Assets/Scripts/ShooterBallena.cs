@@ -22,6 +22,8 @@ public class ShooterBallena : MonoBehaviour
             enemyX = collision.transform.position.x;
             enemyY = collision.transform.position.y;
             Instantiate(balaBallena, transform.position, Quaternion.Euler(0, 0, 0), gameObject.transform);
+            AudioManager.GetInstance().PlaySFX("LanzamientoBallena"); // Reproducción del sonido de disparo de ballena
+            Debug.Log("HOLA");
             isShooting = true;
             lastShotTime = Time.time;
         }

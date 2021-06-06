@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
                     indice = (indice + 1) % 4;
                     Destroy(torrePuntero);
                     asignaTorrePuntero();
+                    AudioManager.GetInstance().PlaySFX("CambioTorre"); // Reproducción del sonido de cambio de torre
                     instance.torresTamañoUI(indice);
                 }
                 else if (Input.GetAxis("Mouse ScrollWheel") > 0f)
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
                     indice = (indice + 3) % 4;
                     Destroy(torrePuntero);
                     asignaTorrePuntero();
+                    AudioManager.GetInstance().PlaySFX("CambioTorre"); // Reproducción del sonido de cambio de torre
                     instance.torresTamañoUI(indice);
                 }
                 //Actualiza la torrePuntero en la posición del cursor

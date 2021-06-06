@@ -49,7 +49,7 @@ MonoBehaviour:
     type: 2}
   sfx:
   - nombre: Monedas
-    clip: {fileID: 8300000, guid: 8a2b6ddfc5fdc35428a368bc946474bb, type: 3}
+    clip: {fileID: 8300000, guid: bcb0b0337d33f0844809fc48112830b0, type: 3}
     volumen: 1
     fuente: {fileID: 0}
   - nombre: Disparo
@@ -86,6 +86,30 @@ MonoBehaviour:
     fuente: {fileID: 0}
   - nombre: NoPuedeConstruir
     clip: {fileID: 8300000, guid: 43530165881f5094e8c9bb757b07ee07, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: MuerteTorre
+    clip: {fileID: 8300000, guid: 48bed80989ac4d44e97912c4ffd04c3c, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: CambioTorre
+    clip: {fileID: 8300000, guid: 43530165881f5094e8c9bb757b07ee07, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: CargaDisparoTortuga
+    clip: {fileID: 8300000, guid: 338d490864512514182643eba8e0a295, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: DisparoErizoPulpo
+    clip: {fileID: 8300000, guid: 58bfaec2e1e3ed246b6dc24a3a923d34, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: LanzamientoBallena
+    clip: {fileID: 8300000, guid: 7716a0050b195e24aa4122a64e6cfee1, type: 3}
+    volumen: 1
+    fuente: {fileID: 0}
+  - nombre: ExplosionBallena
+    clip: {fileID: 8300000, guid: 36dda733d950f6b4b89ca40b364a7968, type: 3}
     volumen: 1
     fuente: {fileID: 0}
   music:
